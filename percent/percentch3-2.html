@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffe783">
+    <title>Lazy Goose</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- เชื่อมไฟล์ CSS -->
+    <link rel="stylesheet" href="../common/lesson.css">
+    <link rel="stylesheet" href="../common/settings.css">
+    <link rel="stylesheet" href="./percentch3-2.css">
+</head>
+
+<body data-prev="percentch3-1.html" data-next="percentch3-3.html">
+    <main class="game-screen">
+
+        <!-- ปุ่มตั้งค่า -->
+        <div class="settings-wrap">
+            <button class="icon-button" id="settingsButton" type="button"
+                aria-label="ตั้งค่า" aria-expanded="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.14 12.94c.04-.31.06-.63.06-.94s-.02-.63-.07-.94l2.03-1.58a.5.5 0 0 0 .12-.64l-1.92-3.32a.5.5 0 0 0-.61-.22l-2.39.96a7.3 7.3 0 0 0-1.63-.94L14.37 2.8a.49.49 0 0 0-.49-.4h-3.84a.49.49 0 0 0-.49.4L9.19 5.32c-.59.23-1.14.55-1.63.94l-2.39-.96a.5.5 0 0 0-.61.22L2.64 8.84a.5.5 0 0 0 .12.64l2.03 1.58c-.05.31-.07.63-.07.94s.02.63.07.94l-2.03 1.58a.5.5 0 0 0-.12.64l1.92 3.32c.12.21.37.3.61.22l2.39-.96c.49.39 1.04.71 1.63.94l.36 2.52c.04.23.24.4.49.4h3.84c.25 0 .45-.17.49-.4l.36-2.52c.59-.23 1.14-.55 1.63-.94l2.39.96c.24.08.49-.01.61-.22l1.92-3.32a.5.5 0 0 0-.12-.64zM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"/></svg>
+            </button>
+            <div class="settings-menu" id="settingsMenu" hidden>
+                <button type="button" data-action="guide">คู่มือ</button>
+                <button type="button" data-action="lessons">บทเรียน</button>
+            </div>
+        </div>
+
+        <!-- เนื้อหา -->
+        <div class="lesson-content">
+            <div class="stack">
+                <span class="pill small">เต้ยขายนาฬิกาเรือนหนึ่งได้กำไร 20%</span>
+                <p class="b">มีความหมายว่า</p>
+                <div class="watch-card">
+                    <p class="wc-top">ถ้าเต้ยซื้อนาฬิกามาในราคา 100 บาท</p>
+                    <div class="wc-pic"><svg viewBox="0 0 140 80" aria-hidden="true"><path d="M8 26h124l-6 28H14Z" fill="#26392f" stroke="#111" stroke-width="2" stroke-linejoin="round"/><circle cx="70" cy="40" r="30" fill="#26392f"/><circle cx="70" cy="40" r="24" fill="#fff" stroke="#26392f" stroke-width="3"/><path d="M75 28 64 40l11 12" fill="none" stroke="#26392f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <p class="wc-mid">เต้ยจะขายนาฬิกาเรือนนี้ในราคา 120 บาท</p>
+                    <p class="wc-bottom">ทำให้ได้กำไร 20 บาท</p>
+                </div>
+                <p class="c-blue b">ดังนั้น อัตราส่วนของกำไรต่อราคาซื้อเป็น</p>
+                <p class="c-blue b ratio-line"><span class="hl-mint">20</span> : <span class="hl-cream">100</span> หรือ <span class="frac"><span><span class="hl-mint">20</span></span><span><span class="hl-cream">100</span></span></span></p>
+            </div>
+        </div>
+
+        <!-- ปุ่มย้อนกลับ / ถัดไป -->
+        <nav class="lesson-nav">
+            <button class="back-button" id="backBtn" type="button">← ย้อนกลับ</button>
+            <button class="next-button" id="nextBtn" type="button">ถัดไป →</button>
+        </nav>
+    </main>
+
+    <!-- คลื่นสีเขียวด้านล่าง -->
+    <div class="green-wave">
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <defs>
+                <linearGradient id="greenGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="100%" stop-color="#00BF63"/>
+                </linearGradient>
+            </defs>
+            <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                fill="url(#greenGradient)" stroke="#111111" stroke-width="3" />
+        </svg>
+    </div>
+
+    <!-- คลื่นสีเขียวด้านบน -->
+    <div class="green-wave1">
+        <svg viewBox="0 20 1440 320" preserveAspectRatio="none">
+            <g transform="translate(0 320) scale(1 -1)">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                    fill="url(#greenGradient)" stroke="#111111" stroke-width="3" />
+            </g>
+        </svg>
+    </div>
+
+    <!-- ดอกไม้ด้านล่าง -->
+    <div class="daisy-container">
+        <img src="../pics/daisy.png" alt="">
+    </div>
+
+    <!-- เชื่อมไฟล์ JavaScript -->
+    <script src="../common/settings.js"></script>
+    <script src="../common/lesson.js"></script>
+</body>
+</html>

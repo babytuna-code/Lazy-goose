@@ -1,0 +1,868 @@
+/* =====================================================
+   lesson.css — สไตล์กลางที่ใช้ร่วมกันทุกหน้าเนื้อหา
+   (ratioch, propch, percentch) และหน้าแบบทดสอบรวมบท (test)
+   ใช้พื้นหลัง คลื่นสีเขียว ฟอนต์ Mali และปุ่มแบบเดียวกับหน้า index
+===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap');
+
+:root {
+    --green: #00bd68;
+    --mint: #abe4b7;
+    --yellow: #ffe783;
+    --dot: #fff3b9;
+    --cream: #fff8dc;
+    --ink: #111111;
+    --red: #ff3038;
+    --brown: #9e5d43;
+    --blue: #1d4ed8;
+    --orange: #ff8a3d;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+/* กันหน้าเลื่อนเพราะคลื่นที่ล้นขอบจอ */
+html {
+    overflow: hidden;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+
+    display: grid;
+    place-items: center;
+
+    /* พื้นหลังเต็มหน้าจอ (เหมือนหน้า index) */
+    background-color: var(--yellow);
+    background-image: radial-gradient(
+        circle,
+        var(--dot) 2px,
+        transparent 2.6px
+    );
+    background-size: 17px 17px;
+
+    font-family: "Mali", sans-serif;
+    color: var(--ink);
+    overflow: hidden;
+}
+
+button {
+    font-family: "Mali", sans-serif;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* =========================
+   พื้นที่เกมแนวตั้ง 9 : 16
+========================= */
+
+.game-screen {
+    position: relative;
+    z-index: 2;
+
+    width: min(100vw, calc(100dvh * 9 / 16));
+    height: min(100dvh, calc(100vw * 16 / 9));
+    aspect-ratio: 9 / 16;
+
+    display: flex;
+    flex-direction: column;
+
+    /* ใช้ขนาดของจอเกมเป็นตัวกำหนดขนาดตัวอักษร */
+    container-type: inline-size;
+    font-size: clamp(12px, 3.4cqw, 15.5px);
+
+    overflow: hidden;
+    background: transparent;
+
+    /* ระยะว่างระหว่างขอบจอเกมกับขอบหน้าจอ (ใช้หลบคลื่น) */
+    --gap-y: calc((100dvh - min(100dvh, 100vw * 16 / 9)) / 2);
+}
+
+/* =========================
+   GREEN WAVE (เหมือนหน้า index)
+========================= */
+
+.green-wave {
+    /* fixed: ไม่ทำให้หน้าเลื่อนได้แม้คลื่นจะล้นขอบจอ */
+    position: fixed;
+    bottom: -190px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.green-wave svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 250.3px);
+    height: 250px;
+}
+
+.green-wave1 {
+    position: fixed;
+    top: -180px;
+    right: 230px;
+    width: 100%;
+    height: 250px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.green-wave1 svg {
+    display: block;
+    height: 250px;
+    width: calc(100% + 250.3px);
+    transform: scaleX(-1);
+}
+
+/* ดอกเดซี่ด้านล่าง */
+.daisy-container {
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    z-index: 3;
+    pointer-events: none;
+}
+
+.daisy-container img {
+    display: block;
+    width: clamp(230px, 62vw, 340px);
+    height: auto;
+}
+
+/* =========================
+   โครงหน้าเนื้อหา
+========================= */
+
+.lesson-content {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    /* เว้นที่ให้คลื่นด้านบน */
+    padding: max(50px, calc(96px - var(--gap-y))) clamp(14px, 5cqw, 26px) 8px;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--brown) transparent;
+
+    /* ไล่จางขอบล่างเล็กน้อย บอกว่ายังเลื่อนลงได้ */
+    -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 14px), transparent);
+    mask-image: linear-gradient(to bottom, #000 calc(100% - 14px), transparent);
+}
+
+/* จัดเนื้อหาไว้กลางแนวตั้ง แต่ยังเลื่อนได้เมื่อยาวเกินจอ */
+.stack {
+    margin: auto 0;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(8px, 2.6cqw, 14px);
+
+    text-align: center;
+}
+
+.lesson-nav {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 6px clamp(14px, 5cqw, 26px);
+    /* เว้นที่ให้คลื่นด้านล่างและดอกไม้ */
+    margin-bottom: max(10px, calc(88px - var(--gap-y)));
+    position: relative;
+    z-index: 5;
+}
+
+/* ปุ่มย้อนกลับ / ถัดไป (รูปแบบเดียวกับหน้าเมนู) */
+.back-button,
+.next-button {
+    padding: 8px 22px;
+
+    background-color: #ffe;
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    border-radius: 30px;
+    box-shadow: 2px 3px 0 var(--ink);
+
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.back-button:hover,
+.next-button:hover {
+    transform: translateY(-3px);
+}
+
+.back-button:active,
+.next-button:active {
+    transform: translateY(2px);
+    box-shadow: 1px 1px 0 var(--ink);
+}
+
+.back-button:focus-visible,
+.next-button:focus-visible {
+    outline: 3px solid var(--green);
+    outline-offset: 4px;
+}
+
+/* ไม่มีปุ่มถัดไป → ยังคงจัดปุ่มย้อนกลับไว้ซ้าย */
+.lesson-nav .spacer {
+    width: 1px;
+}
+
+/* =========================
+   หัวข้อแบบปุ่มแคปซูล
+========================= */
+
+.pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 62%;
+    max-width: 100%;
+    padding: 0.35em 1.2em 0.45em;
+
+    background: var(--red);
+    color: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 2000px;
+    box-shadow: 4px 5px 0 var(--ink);
+
+    font-size: 1.55em;
+    font-weight: 700;
+    line-height: 1.35;
+    -webkit-text-stroke: 1.6px var(--ink);
+    paint-order: stroke fill;
+}
+
+.pill.brown {
+    background: var(--brown);
+}
+
+.pill.purple {
+    background: var(--blue);
+}
+
+/* หัวข้อขนาดเล็ก (โจทย์ยาว) */
+.pill.small {
+    font-size: 1.02em;
+    -webkit-text-stroke: 0.9px var(--ink);
+    padding: 0.55em 1.1em 0.6em;
+}
+
+.pill.medium {
+    font-size: 1.25em;
+    -webkit-text-stroke: 1.2px var(--ink);
+}
+
+/* โจทย์ในกรอบสี่เหลี่ยมสีน้ำตาล */
+.problem-box {
+    width: 100%;
+    padding: 0.7em 0.9em;
+
+    background: var(--brown);
+    color: #fff;
+    border: 2px solid var(--ink);
+    box-shadow: 5px 6px 0 var(--ink);
+
+    font-size: 0.95em;
+    font-weight: 600;
+    line-height: 1.55;
+    -webkit-text-stroke: 0.5px var(--ink);
+    paint-order: stroke fill;
+}
+
+/* ตัวหนังสือหัวข้อแบบขอบดำ */
+.title-text {
+    font-size: 2.05em;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #fff;
+    -webkit-text-stroke: 1.6px var(--ink);
+    paint-order: stroke fill;
+}
+
+.title-text.red {
+    color: var(--red);
+}
+
+.title-text.big {
+    font-size: 2.6em;
+}
+
+/* =========================
+   ข้อความและกล่องเนื้อหา
+========================= */
+
+.note {
+    text-wrap: balance;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.55;
+}
+
+.label {
+    font-weight: 700;
+}
+
+.box {
+    width: 100%;
+    padding: 0.75em 0.9em;
+
+    background: var(--cream);
+    border-radius: 4px;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.12);
+
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.box.left {
+    text-align: left;
+}
+
+.box.bordered {
+    border: 2px solid var(--ink);
+    border-radius: 2px;
+}
+
+.box.answer {
+    border: 2px solid var(--ink);
+    border-radius: 2px;
+    color: var(--red);
+    font-style: italic;
+    font-weight: 700;
+    font-size: 1.12em;
+}
+
+.box.orange {
+    background: var(--orange);
+    font-style: italic;
+    font-weight: 700;
+}
+
+.box h4 {
+    font-size: 1.08em;
+    color: var(--blue);
+    margin-bottom: 2px;
+}
+
+.box-title {
+    font-weight: 700;
+    color: var(--blue);
+}
+
+.section-title {
+    align-self: flex-start;
+    font-size: 1.15em;
+    font-weight: 700;
+    color: var(--red);
+}
+
+/* สีข้อความ */
+.c-red    { color: var(--red); }
+.c-blue   { color: var(--blue); }
+.c-green  { color: #08a85c; }
+.c-brown  { color: var(--brown); }
+.c-orange { color: #f26a1b; }
+.i        { font-style: italic; }
+.b        { font-weight: 700; }
+.big-num  { font-size: 2em; font-weight: 700; letter-spacing: 0.08em; }
+
+/* เศษส่วน */
+.frac {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    vertical-align: middle;
+    margin: 0 0.2em;
+    line-height: 1.3;
+}
+
+/* เว้นระยะตัวเลข/ตัวหนังสือไม่ให้ชนเส้นเศษส่วน (สระบน-ล่างภาษาไทย) */
+.frac > span:first-child {
+    padding: 0 0.25em 0.08em;
+    border-bottom: 2px solid currentColor;
+}
+
+.frac > span:last-child {
+    padding: 0.1em 0.25em 0;
+}
+
+/* สมการแบบเรียงบรรทัด */
+.eq {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    align-items: center;
+    column-gap: 0.6em;
+    row-gap: 0.55em;
+    text-align: left;
+    font-size: 1.08em;
+}
+
+.eq > :nth-child(3n + 2) {
+    text-align: center;
+}
+
+/* =========================
+   รูปห่าน
+========================= */
+
+.goose {
+    display: block;
+    width: clamp(190px, 68cqw, 300px);
+    height: auto;
+    /* ตัดขอบโปร่งใสรอบรูปห่านออก */
+    aspect-ratio: 1.55;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+.goose.sm {
+    width: clamp(140px, 46cqw, 210px);
+}
+
+.goose.lg {
+    width: clamp(240px, 86cqw, 380px);
+}
+
+/* =========================
+   Flashcard (คลิกเพื่อพลิก)
+========================= */
+
+.flashcard {
+    width: 100%;
+    aspect-ratio: 1.45 / 1;
+    perspective: 1000px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit;
+    display: block;
+}
+
+.flashcard-inner {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.flashcard.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+}
+
+.flashcard-face {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4em;
+
+    padding: 0.8em;
+    background: var(--mint);
+    border: 3px solid var(--ink);
+    border-radius: 18px;
+    box-shadow: 6px 6px 0 var(--ink);
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.flashcard-face.back {
+    transform: rotateY(180deg);
+}
+
+.flashcard-tag {
+    position: absolute;
+    top: 0.9em;
+    padding: 0.1em 0.9em 0.2em;
+
+    background: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 30px;
+    box-shadow: 2px 3px 0 var(--ink);
+
+    font-weight: 700;
+    font-size: 1.4em;
+}
+
+.flashcard-big {
+    font-size: 2.6em;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #fff;
+    -webkit-text-stroke: 1.6px var(--ink);
+    paint-order: stroke fill;
+}
+
+.flashcard-text {
+    font-size: 1.35em;
+    font-weight: 600;
+}
+
+.flashcard-hint {
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.icon-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25em;
+    flex-wrap: wrap;
+}
+
+.icon-row svg {
+    width: 3.2em;
+    height: auto;
+}
+
+/* =========================
+   ปุ่มส่งคำตอบ (เหมือนหน้าเกม)
+========================= */
+
+.submit-button {
+    width: min(100%, 300px);
+    min-height: 44px;
+    padding: 8px 16px;
+
+    background: var(--red);
+    color: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 50px;
+    box-shadow: 5px 6px var(--ink);
+
+    font-size: 18px;
+    -webkit-text-stroke: 1.5px var(--ink);
+    paint-order: stroke fill;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background: #ff5158;
+}
+
+.submit-button:active {
+    transform: translate(3px, 3px);
+    box-shadow: 2px 3px var(--ink);
+}
+
+.submit-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* =========================
+   หน้า "จบบทเรียน"
+========================= */
+
+.end-title {
+    font-size: 2.3em;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #fff;
+    -webkit-text-stroke: 1.8px var(--ink);
+    paint-order: stroke fill;
+    text-shadow: 2px 3px 0 var(--ink);
+}
+
+.end-button {
+    padding: 0.5em 1.4em;
+
+    background: var(--red);
+    color: #fff;
+    border: 3px solid var(--ink);
+    box-shadow: 8px 8px 0 var(--ink);
+
+    font-size: 1.7em;
+    font-weight: 700;
+    line-height: 1.3;
+    -webkit-text-stroke: 1.5px var(--ink);
+    paint-order: stroke fill;
+
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.end-button:hover {
+    background: #7bb369;
+    transform: translateY(-3px);
+}
+
+.end-button:active {
+    transform: translate(4px, 4px);
+    box-shadow: 4px 4px 0 var(--ink);
+}
+
+/* =========================
+   ลดการเคลื่อนไหว
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* =========================
+   ภาพประกอบเล็ก ๆ
+========================= */
+
+/* เหรียญ 10 บาท */
+.coin {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 2.3em;
+    height: 2.3em;
+
+    background: radial-gradient(circle at 40% 35%, #ffe9a8, #f7c84a 70%);
+    border: 3px solid #e7b84a;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 3px #fff3c9, 1px 2px 0 rgba(0, 0, 0, 0.25);
+
+    color: #f0662b;
+    font-size: 0.9em;
+    font-weight: 700;
+}
+
+/* ตารางทั่วไป */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border: 2px solid var(--ink);
+}
+
+.table th,
+.table td {
+    border: 2px solid var(--ink);
+    padding: 0.45em 0.3em;
+}
+
+.table th {
+    background: #c9efd4;
+    font-weight: 700;
+}
+
+/* =========================
+   ส่วนประกอบเพิ่มเติม (สัดส่วน / ร้อยละ)
+========================= */
+
+/* ตัวห้อย เช่น A₁ */
+sub {
+    font-size: 0.7em;
+}
+
+/* ตัวแปรที่เน้นสีพื้นหลัง */
+.var-hl {
+    padding: 0 0.25em;
+    background: var(--mint);
+}
+
+/* การคูณไขว้: วางเศษส่วนสองตัวแล้วลากเส้นทแยง */
+.cross {
+    display: inline-flex;
+    align-items: stretch;
+    vertical-align: middle;
+}
+
+.cross > .frac {
+    align-self: center;
+}
+
+/* เส้นคูณไขว้ (มีหัวลูกศร) อยู่ในช่องว่างระหว่างเศษส่วน ไม่ทับตัวเลข */
+.x-mid {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    width: 3em;
+    height: 2.6em;
+    margin: 0 0.1em;
+    color: var(--ink);
+}
+
+.x-mid > svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.x-mid line {
+    stroke: currentColor;
+    stroke-width: 1.1;
+    stroke-linecap: round;
+}
+
+/* เครื่องหมาย = มีพื้นรองไว้ให้เห็นชัด ไม่โดนเส้นทับ */
+.x-eq {
+    position: relative;
+    z-index: 1;
+    padding: 0 0.05em;
+    background: var(--cream);
+    font-size: 0.85em;
+    line-height: 0.55;
+}
+
+/* ก้อนเมฆคำอธิบาย */
+.cloud {
+    padding: 1.1em 1em;
+    background: #fffdf5;
+    border-radius: 48% 52% 46% 54% / 60% 55% 45% 40%;
+    box-shadow: 3px 4px 0 rgba(0, 0, 0, 0.12);
+    font-size: 0.92em;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+/* แบ่ง 2 คอลัมน์ (ย่อเป็นคอลัมน์เดียวบนจอแคบมาก) */
+.two-col {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7em;
+    align-items: center;
+}
+
+@container (max-width: 300px) {
+    .two-col {
+        grid-template-columns: 1fr;
+    }
+}
+
+.red-title {
+    color: var(--red);
+    font-weight: 700;
+    font-size: 1.1em;
+    line-height: 1.45;
+}
+
+.formula-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4em;
+    padding: 0.5em 1em;
+    background: #fff;
+    border: 2px solid var(--ink);
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+/* =========================
+   ห่านวางข้างหัวข้อ / ข้างกล่อง (ลดความยาวหน้า)
+========================= */
+
+.head-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4em;
+    width: 100%;
+}
+
+.head-row .goose {
+    width: 34%;
+    max-width: 180px;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.head-row .pill {
+    flex: 1;
+    min-width: 0;
+}
+
+.head-row .title-text {
+    flex: 1;
+    min-width: 0;
+    font-size: 1.45em;
+    text-align: center;
+}
+
+.head-row > p {
+    flex: 1;
+    text-align: left;
+}
+
+.side-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    width: 100%;
+}
+
+.side-row .box {
+    flex: 1;
+}
+
+.side-row .goose {
+    width: 40%;
+    margin: 0;
+    flex-shrink: 0;
+    transform: scaleX(-1);
+}
+
+/* ห่านในแฟลชการ์ด */
+.flashcard {
+    aspect-ratio: 1.2 / 1;
+}
+
+.card-goose {
+    width: 40%;
+    aspect-ratio: 1.55;
+    object-fit: cover;
+    margin-top: 0.6em;
+}
+
+/* ตัวเลขด้านหลังแฟลชการ์ดให้เด่นขึ้น */
+.flashcard-face.back .flashcard-big {
+    font-size: 3.4em;
+}

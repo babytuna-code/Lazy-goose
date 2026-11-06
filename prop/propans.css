@@ -1,0 +1,14 @@
+/* propans : หน้าแรกของเนื้อหาเรื่องสัดส่วน
+   (สไตล์หลักอยู่ใน ../common/lesson.css) */
+
+.topic-link {
+    width: 72%;
+    text-decoration: none;
+    font-size: 1.3em;
+    transition: transform 0.15s ease;
+}
+
+.topic-link:hover {
+    transform: translateY(-3px);
+    background: #7bb369;
+}

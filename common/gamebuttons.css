@@ -1,0 +1,220 @@
+/* =====================================================
+   gamebuttons.css — ปุ่ม "ส่งคำตอบ" และ "ถัดไป" ในหน้าเกมท้ายบท
+   ให้ขนาดเท่ากัน และอยู่ตำแหน่งเดียวกันทุกหน้า (ratio / prop / percent)
+===================================================== */
+
+:root {
+    --game-btn-width: min(340px, calc(100vw - 48px));
+    --game-btn-height: 50px;
+    /* ปุ่มถัดไปอยู่เหนือดอกเดซี่ ปุ่มส่งคำตอบอยู่เหนือปุ่มถัดไป */
+    --game-next-bottom: max(88px, 11dvh);
+    --game-submit-bottom: calc(var(--game-next-bottom) + var(--game-btn-height) + 14px);
+}
+
+body .submit-button,
+body .next-button {
+    position: fixed !important;
+    left: 50% !important;
+    right: auto !important;
+    top: auto !important;
+    z-index: 10001;
+
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+
+    width: var(--game-btn-width) !important;
+    height: var(--game-btn-height) !important;
+    min-height: var(--game-btn-height) !important;
+    margin: 0 !important;
+    padding: 0 16px !important;
+
+    border: 2px solid #111 !important;
+    border-radius: 50px !important;
+    box-shadow: 4px 5px 0 #111 !important;
+
+    font-family: "Mali", sans-serif;
+    font-size: 18px !important;
+    line-height: 1;
+
+    transform: translateX(-50%) !important;
+    transition: transform 0.15s ease;
+}
+
+body .submit-button {
+    bottom: var(--game-submit-bottom) !important;
+}
+
+body .next-button {
+    bottom: var(--game-next-bottom) !important;
+    font-weight: 700;
+}
+
+body .submit-button:not(:disabled):hover,
+body .next-button:not([hidden]):hover {
+    transform: translate(-50%, -3px) !important;
+}
+
+body .submit-button:not(:disabled):active,
+body .next-button:not([hidden]):active {
+    transform: translate(-50%, 2px) !important;
+    box-shadow: 1px 2px 0 #111 !important;
+}
+
+body .next-button[hidden] {
+    display: none !important;
+}
+
+/* เว้นที่ด้านล่างให้ปุ่มทั้งสอง เนื้อหาเกมจะถูกจัดให้อยู่เหนือปุ่ม */
+body {
+    box-sizing: border-box;
+    padding-bottom: calc(var(--game-submit-bottom) + var(--game-btn-height) + 12px) !important;
+}
+
+/* ป๊อปอัปเฉลยต้องอยู่เหนือปุ่มส่งคำตอบ/ถัดไป */
+body .feedback-overlay {
+    z-index: 20000 !important;
+}
+
+/* =====================================================
+   กรอบโจทย์ในเกมท้ายบท — แบบเดียวกับแบบทดสอบรวมบท
+   (สีแดง ขอบดำ มีเงาขอบดำด้านล่าง ตัวหนังสือหนา)
+===================================================== */
+
+body .ask-btn,
+body .ask-btn1,
+body .ask-btn2 {
+    padding: 0.55em 1.1em 0.6em !important;
+
+    background: var(--red, #ff3038) !important;
+    color: #fff !important;
+    border: 2px solid #111 !important;
+    border-radius: 2000px !important;
+    box-shadow: 4px 5px 0 #111 !important;
+
+    font-family: "Mali", sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    -webkit-text-stroke: 0.9px #111 !important;
+    paint-order: stroke fill;
+}
+
+/* กรอบโจทย์อ่านง่ายบนมือถือ: กว้างขึ้น มุมมนน้อยลง ตัวหนังสือขนาดพอดี */
+body .ask-btn,
+body .ask-btn1,
+body .ask-btn2 {
+    width: min(calc(100vw - 32px), 520px) !important;
+    max-width: 520px !important;
+    border-radius: 16px !important;
+    padding: 0.6em 0.9em 0.65em !important;
+    font-size: clamp(13px, 3.7vw, 15.5px) !important;
+    line-height: 1.5 !important;
+    -webkit-text-stroke: 0.6px #111 !important;
+    margin-top: 92px !important;
+}
+
+/* ด่านที่มีกรอบโจทย์ 2 กรอบ: กรอบที่ 2 ต่อจากกรอบแรกทันที */
+body .ask-container .ask-btn1 {
+    margin-top: 0 !important;
+}
+
+body .ask-container .ask-btn2 {
+    margin-top: 10px !important;
+}
+
+body .ask-container {
+    margin-top: 92px !important;
+}
+
+/* =====================================================
+   ช่องตัวเลขและลูกศรขึ้น-ลง: ขนาดเล็กลง และเว้นระยะจากกรอบโจทย์ ไม่ให้ทับกัน
+===================================================== */
+
+body .ratio-area {
+    margin-top: 28px !important;
+    margin-bottom: 0 !important;
+}
+
+body .number-control {
+    gap: 6px !important;
+}
+
+body .number-box {
+    width: 64px !important;
+    height: 64px !important;
+    font-size: 38px !important;
+}
+
+body .arrow {
+    border-left-width: 14px !important;
+    border-right-width: 14px !important;
+}
+
+body .arrow-up {
+    margin-top: 0 !important;
+    border-bottom-width: 20px !important;
+}
+
+body .arrow-down {
+    border-top-width: 20px !important;
+}
+
+body .colon {
+    font-size: 34px !important;
+}
+
+/* ด่านที่มี 2 กรอบ: ตัวหนังสือเล็กลงเล็กน้อยให้สมดุลกับพื้นที่ */
+body .ask-container .ask-btn1,
+body .ask-container .ask-btn2 {
+    font-size: clamp(12.5px, 3.4vw, 14.5px) !important;
+}
+
+/* =====================================================
+   ลูกโป่งในเกมท้ายบท — ขนาดและตำแหน่งเดียวกับแบบทดสอบรวมบท
+===================================================== */
+
+body .balloon-area {
+    position: relative !important;
+    inset: auto !important;
+    width: min(calc(100vw - 32px), 330px) !important;
+    height: clamp(220px, 62vw, 280px) !important;
+    margin: 28px auto 0 !important;
+    transform: none !important;
+}
+
+body .balloon-area .strings {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+body .balloon-area .balloon {
+    width: 33% !important;
+    height: auto !important;
+    aspect-ratio: 1 !important;
+    font-size: clamp(17px, 5vw, 22px) !important;
+    margin: 0 !important;
+    transform: none;
+}
+
+body .balloon-area .balloon.red    { left: 4% !important;    top: 30% !important; right: auto !important; }
+body .balloon-area .balloon.green  { left: 33.5% !important; top: 6% !important;  right: auto !important; }
+body .balloon-area .balloon.purple { right: 4% !important;   top: 34% !important; left: auto !important; }
+
+/* หน้าที่มีลูกโป่ง: เรียงจากบนลงล่าง (โจทย์ → ลูกโป่ง) ไม่ให้แต่ละแถวถูกยืดจนลูกโป่งตกไปทับปุ่ม */
+body:has(.balloon-area) {
+    align-content: start !important;
+    grid-template-rows: auto !important;
+}
+
+body .ask-btn,
+body .ask-container {
+    margin-bottom: 0 !important;
+}
+
+/* จอเตี้ย: ย่อพื้นที่ลูกโป่งตามความสูงจอ */
+body .balloon-area {
+    height: clamp(200px, min(62vw, 34vh), 280px) !important;
+}

@@ -1,0 +1,24 @@
+/* propch2-3 : เมื่อมีจำนวนไม่ทราบค่า */
+
+.example {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6em;
+    width: 70%;
+    padding: 1em;
+}
+
+.ex-label {
+    font-size: 1.4em;
+}
+
+.ex-eq {
+    font-size: 1.6em;
+    font-weight: 700;
+}
+
+.title-text.mid {
+    font-size: 1.55em;
+    -webkit-text-stroke: 1.2px var(--ink);
+}

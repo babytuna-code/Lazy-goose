@@ -1,0 +1,189 @@
+/* propch2-2 : สัดส่วนผกผัน */
+
+/* ---------- ตารางพร้อมลูกศรโค้ง ---------- */
+
+.head-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2em;
+    width: 100%;
+}
+
+.head-row .goose {
+    width: 34%;
+    flex-shrink: 0;
+}
+
+.ptable {
+    display: grid;
+    grid-template-columns: 1fr 3em 3em 1fr;
+    grid-template-rows: 2.4em repeat(5, minmax(2.9em, auto));
+    width: 100%;
+    font-weight: 600;
+}
+
+.pt-h {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #13a85a;
+    color: #fff;
+    border: 2px solid var(--ink);
+    font-size: 1.3em;
+    font-weight: 700;
+    -webkit-text-stroke: 0.8px var(--ink);
+    paint-order: stroke fill;
+}
+
+.pt-h + .pt-h {
+    border-left: none;
+}
+
+.pt-c {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #d4f2dc;
+    border: 1px solid var(--ink);
+    font-size: 1.2em;
+}
+
+/* แถวที่เน้นด้วยกรอบสี */
+.pt-c.r {
+    box-shadow: inset 0 0 0 3px var(--red);
+}
+
+.pt-c.p {
+    box-shadow: inset 0 0 0 3px var(--blue);
+}
+
+/* ลูกศรโค้งด้านข้าง */
+.pt-arc {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0.3em 0;
+}
+
+.pt-arc.left {
+    justify-content: flex-end;
+}
+
+.arc-line {
+    position: relative;
+    align-self: stretch;
+    width: 1em;
+    border: 2px solid var(--ink);
+}
+
+.pt-arc.left .arc-line {
+    border-right: none;
+    border-radius: 1em 0 0 1em;
+    margin-right: 0.2em;
+}
+
+.pt-arc.right .arc-line {
+    border-left: none;
+    border-radius: 0 1em 1em 0;
+    margin-left: 0.2em;
+    order: -1;
+}
+
+/* หัวลูกศร */
+.arc-line::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    border: 5px solid transparent;
+    border-left: 8px solid var(--ink);
+}
+
+.pt-arc.left .arc-line::after {
+    right: -6px;
+}
+
+.pt-arc.right .arc-line::after {
+    left: -8px;
+    border-left: 5px solid transparent;
+    border-right: 8px solid var(--ink);
+}
+
+.arc-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 0.2em;
+    text-align: center;
+}
+
+.arc-note {
+    font-size: 0.78em;
+    font-weight: 600;
+    line-height: 1.45;
+    text-wrap: balance;
+}
+
+.arc-note .frac {
+    font-size: 0.95em;
+    margin: 0 0.1em;
+}
+
+.arc-mult {
+    margin-top: 0.1em;
+}
+
+.arc-mult {
+    font-size: 1.1em;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.white-strip {
+    width: 100%;
+    padding: 0.35em;
+    background: #fff;
+}
+
+/* กล่องสูตร */
+.formula-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+
+.fbox {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2em;
+    padding: 0.4em 0.7em;
+    font-weight: 700;
+    font-size: 1.05em;
+}
+
+.fbox.white {
+    background: #fff;
+}
+
+.fbox.red {
+    background: var(--red);
+    color: #fff;
+}
+
+.fbox.purple {
+    background: var(--blue);
+    color: #fff;
+}
+
+.white-strip {
+    margin-top: 0.9em;
+    line-height: 1.5;
+    text-wrap: balance;
+}
+
+.stack > p.b {
+    line-height: 1.6;
+    text-wrap: pretty;
+}

@@ -1,0 +1,11 @@
+/* ratioans : หน้าแรกของเนื้อหาเรื่องอัตราส่วน
+   (สไตล์หลักอยู่ใน ../common/lesson.css — กล่องแบบเดียวกับหน้าข้อควรระวัง) */
+
+.ab-big {
+    margin: 0.2em 0;
+    font-size: 2.4em;
+    font-weight: 700;
+    line-height: 1.2;
+    -webkit-text-stroke: 1px var(--ink);
+    paint-order: stroke fill;
+}

@@ -1,0 +1,77 @@
+/* ratioch1-11 : ตัวอย่างอัตราส่วนหลาย ๆ จำนวน 2 วิธี (แฟลชการ์ดพลิกดูอีกวิธี) */
+
+.problem-box {
+    font-size: 0.88em;
+    line-height: 1.5;
+}
+
+.problem-box .mark {
+    padding: 0 0.15em;
+    outline: 2px solid var(--blue);
+}
+
+.hint-top {
+    font-size: 0.9em;
+}
+
+.flashcard.method-card {
+    aspect-ratio: 1 / 0.98;
+}
+
+.method-card .flashcard-face {
+    justify-content: center;
+    gap: 0.6em;
+    padding: 0.8em 0.7em;
+}
+
+.method-pill {
+    min-width: auto;
+    font-size: 1.15em;
+    padding: 0.15em 1em 0.25em;
+    box-shadow: 3px 3px 0 var(--ink);
+    -webkit-text-stroke: 1px var(--ink);
+}
+
+.method-note {
+    font-size: 0.95em;
+    line-height: 1.4;
+}
+
+.method-card .box.step {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 0.4em;
+    padding: 0.55em 0.7em;
+    text-align: left;
+    font-size: 0.98em;
+    line-height: 1.4;
+}
+
+.step-label {
+    font-weight: 600;
+}
+
+.step-value {
+    font-weight: 700;
+    font-size: 1.1em;
+    white-space: nowrap;
+}
+
+.circle {
+    display: inline-block;
+    min-width: 1.6em;
+    padding: 0 0.1em;
+    border: 2px solid var(--blue);
+    border-radius: 50%;
+    text-align: center;
+}
+
+/* พื้นการ์ดวิธีทำเป็นสีขาว อ่านง่าย */
+.method-card .flashcard-face {
+    background: #fff;
+}
+
+.method-card .box.step {
+    background: #fff8dc;
+}

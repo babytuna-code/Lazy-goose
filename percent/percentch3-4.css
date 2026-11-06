@@ -1,0 +1,145 @@
+/* percentch3-4 : การเขียนร้อยละให้เป็นอัตราส่วน */
+
+.two-tone {
+    font-size: 1.75em;
+}
+
+.two-tone .red {
+    color: var(--red);
+}
+
+.pct-demo {
+    width: 82%;
+}
+
+.pct-big {
+    font-size: 3em;
+    font-weight: 700;
+    color: #fff;
+    -webkit-text-stroke: 1.5px var(--ink);
+    paint-order: stroke fill;
+    line-height: 1.2;
+}
+
+.eqsign {
+    font-size: 2em;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.small {
+    font-size: 0.9em;
+}
+
+.pills {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3em;
+}
+
+.rbox {
+    padding: 0 0.3em;
+    border: 3px solid var(--ink);
+    border-radius: 0.5em;
+    font-size: 2.4em;
+    font-weight: 700;
+    -webkit-text-stroke: 1px var(--ink);
+}
+
+.colon {
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.pct-frac {
+    font-size: 2.6em;
+    font-weight: 700;
+    -webkit-text-stroke: 1px var(--ink);
+}
+
+
+/* ---------- ลูกศรจากตัวเลขไปยังข้อความ (สีเดียวกับตัวเลข) ---------- */
+
+.pt-host {
+    position: relative;
+    display: inline-flex;
+}
+
+.pt-at {
+    position: absolute;
+    display: flex;
+    pointer-events: none;
+}
+
+/* ลูกศรชี้ขึ้น จากมุมขวาบนของตัวเลขไปยังข้อความด้านบน */
+.pt-at.top-right {
+    bottom: 70%;
+    left: 88%;
+}
+
+/* ลูกศรชี้ลง จากมุมขวาล่างของตัวเลขไปยังข้อความด้านล่าง */
+.pt-at.bottom-right {
+    top: 70%;
+    left: 88%;
+}
+
+.pt-arrow {
+    width: 0.9em;
+    height: 1.9em;
+}
+
+.pt-arrow line {
+    stroke: currentColor;
+    stroke-width: 3.5;
+    stroke-linecap: round;
+}
+
+.pt-arrow path {
+    fill: currentColor;
+}
+
+/* เว้นที่ให้ลูกศรระหว่างข้อความกับตัวเลข */
+.pct-demo .pills {
+    margin: 1.7em 0 1.6em;
+}
+
+.pt-arrow {
+    width: 1.1em;
+    height: 2.2em;
+}
+
+.pt-at.top-right,
+.pt-at.bottom-right {
+    left: 92%;
+}
+
+/* ลูกศรเริ่มจากกึ่งกลางเส้นขอบของตัวเลข */
+.pt-at.top-right {
+    left: 50%;
+    bottom: 100%;
+    top: auto;
+    transform: translateX(-50%);
+}
+
+.pt-at.bottom-right {
+    left: 50%;
+    top: 100%;
+    bottom: auto;
+    transform: translateX(-50%);
+}
+
+.pct-demo .pills {
+    margin: 2.1em 0 2em;
+}
+
+/* ลูกศรสีดำ */
+.pt-at {
+    color: #111 !important;
+}
+
+/* 33% ขอบตัวอักษรหนาขึ้น อ่านง่าย */
+.pct-big {
+    -webkit-text-stroke: 2.4px var(--ink);
+    text-shadow: 2px 3px 0 var(--ink);
+}

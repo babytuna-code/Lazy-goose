@@ -1,0 +1,21 @@
+/* percentch3-1 : ร้อยละในชีวิตประจำวัน */
+
+.big-label {
+    font-size: 1.3em;
+}
+
+.daily {
+    width: 82%;
+    color: var(--blue);
+    font-size: 1.15em;
+    font-weight: 700;
+    line-height: 1.9;
+}
+
+.side-row .goose {
+    width: 34%;
+}
+
+.side-row .daily {
+    font-size: 1.05em;
+}

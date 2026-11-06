@@ -1,0 +1,13 @@
+/* ratioch1-7 : ตารางการคูณและการหารด้วยจำนวนเดียวกัน */
+
+.frac-table {
+    font-size: 0.86em;
+}
+
+.frac-table th {
+    font-size: 0.95em;
+}
+
+.frac-table td {
+    white-space: nowrap;
+}

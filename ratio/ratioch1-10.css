@@ -1,0 +1,23 @@
+/* ratioch1-10 : อัตราส่วนของจำนวนสามจำนวน a : b : c */
+
+.abc-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.2em;
+    width: 100%;
+}
+
+.abc-box {
+    width: auto;
+    padding: 0.4em 2em;
+    font-size: 1.8em;
+    font-weight: 700;
+    line-height: 1.35;
+    -webkit-text-stroke: 1px var(--ink);
+    paint-order: stroke fill;
+}
+
+.box.note p + p {
+    margin-top: 0.1em;
+}

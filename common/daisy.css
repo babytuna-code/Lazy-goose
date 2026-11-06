@@ -1,0 +1,19 @@
+/* =====================================================
+   daisy.css — ดอกเดซี่บนคลื่นสีเขียวด้านล่าง
+   ตำแหน่งเดียวกับหน้าเนื้อหา (กึ่งกลางล่างของจอ)
+===================================================== */
+
+.daisy-bottom {
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.daisy-bottom img {
+    display: block;
+    width: clamp(230px, 62vw, 340px);
+    height: auto;
+}

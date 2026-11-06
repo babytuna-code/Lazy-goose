@@ -1,0 +1,721 @@
+@import url('https://fonts.googleapis.com/css2?family=Mali:wght@400;500;600;700&display=swap');
+
+
+:root {
+    --green: #00bd68;
+    --yellow: #ffe783;
+    --dot: #fff3b9;
+    --ink: #111111;
+    --red: #ff3038;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+
+    display: grid;
+    place-items: center;
+
+    /* พื้นหลังเต็มหน้าจอ */
+    background-color: var(--yellow);
+    background-image: radial-gradient(
+        circle,
+        var(--dot) 2px,
+        transparent 2.6px
+    );
+    background-size: 17px 17px;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   GREEN WAVE
+========================= */
+
+.green-wave {
+    position: absolute;
+    bottom: -190px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+
+}
+
+.green-wave svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 250.3px);
+    height: 250px;
+}
+
+.green-wave1 {
+    position: absolute;
+    top: -180px;
+    right: 230px;
+    width: 100%;
+    height: 250px;
+
+    z-index: 1;
+    pointer-events: none;
+}
+
+.green-wave1 svg {
+    display: block;
+    width: 100%;
+      height: 250px;
+    width: calc(100% + 250.3px);
+    transform: scaleX(-1);
+}
+
+
+.goose-container {
+    display: block;
+    width: 400px; /* ลดขนาดรูปจาก 200px เหลือ 150px */
+    margin: 0 auto; /* จัดให้อยู่ตรงกลาง */
+}
+
+.goose-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.daisy-container {
+    display: flex;
+    justify-content: center;
+
+    position: absolute;
+    left: 0;
+    bottom: 3%;
+
+    width: 100%;
+    transform: translateY(-30px);
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* พื้นที่เกมแนวตั้งตามภาพตัวอย่าง */
+.game-screen {
+    position: relative;
+    isolation: isolate;
+
+    /* ขนาดเกมแนวนอน */
+    width: min(100vw, calc(100dvh * 16 / 9));
+    height: min(100dvh, calc(100vw * 9 / 16));
+
+    aspect-ratio: 16 / 9;
+    max-width: 100vw;
+    max-height: 100dvh;
+
+    overflow: hidden;
+
+    /* ให้เห็นพื้นหลังเต็มจอจาก body */
+    background: transparent;
+}
+
+
+.yellow-field {
+    position: absolute;
+    inset: 3.1% 0 2.2%;
+    background-color: var(--yellow);
+    background-image: radial-gradient(
+        circle,
+        var(--dot) 2px,
+        transparent 2.7px
+    );
+    background-size: 17px 17px;
+    clip-path: polygon(
+        0 3.8%, 8% 6.2%, 19% 7.1%, 33% 5.5%,
+        50% 2.3%, 69% 0, 83% 1.2%, 100% 5%,
+        100% 95.5%, 91% 93.2%, 76% 93.5%,
+        61% 96.8%, 44% 99%, 27% 99.6%,
+        12% 98.4%, 0 95.7%
+    );
+}
+
+.ask-container {
+    margin-top:80px;
+    margin-bottom: -30px;
+}
+
+.ask-btn1 {
+    display: block;
+    width: fit-content;
+    width: min(calc(100% - 130px), 400px);
+    margin: 110px auto 0;
+    margin-top: 15px;
+    padding: 10px;
+    background: #ff3038;
+    border-radius: 25px;
+    color: #ffe;
+    font-size: 14px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-family: "Mali", sans-serif;
+    -webkit-text-stroke:1.5px #111;    /* ขอบตัวหนังสือสีดำ */
+    paint-order: stroke fill;
+}
+
+.ask-btn2 {
+    display: block;
+    width: fit-content;
+    width: min(calc(100% - 130px), 400px);
+    margin: 110px auto 0;
+    margin-top: 5px;
+    padding: 10px;
+    background: #ff3038;
+    border-radius: 25px;
+    color: #ffe;
+    font-size: 14px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-family: "Mali", sans-serif;
+    -webkit-text-stroke:1.5px #111;    /* ขอบตัวหนังสือสีดำ */
+    paint-order: stroke fill;
+}
+
+.ratio-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(8px, 3vw, 20px);
+
+    transform: translateY(-10px);
+}
+
+.number-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.number-box {
+    width: clamp(78px, 10vw, 60px);
+    height: clamp(78px, 10vw, 50px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border: 2px solid #111;
+    font-size: clamp(35px, 8vw, 52px);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.colon {
+    font-size: clamp(35px, 8vw, 50px);
+    font-weight: 700;
+    padding-bottom: 5px;
+}
+
+.arrow {
+    width: 0;
+    height: 0;
+    padding: 0;
+    background: transparent;
+    border-left: 18px solid transparent;
+    border-right: 18px solid transparent;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.arrow:hover {
+    transform: scale(1.12);
+}
+
+.arrow:active {
+    transform: scale(0.9);
+}
+
+.arrow-up {
+    margin-top: 15px;
+    border-bottom: 27px solid #000;
+    border-top: 0;
+}
+
+.arrow-down {
+    border-top: 27px solid #000;
+    border-bottom: 0;
+}
+
+.submit-button {
+    display: block;
+
+    position: relative;
+    z-index: 1;
+
+    width: min(calc(100% - 40px), 400px);
+    min-height: 44px;
+    bottom: 35px;
+
+    margin: 30px auto 0;
+    padding: 8px 16px;
+
+    background: #ff3038;
+    color: #fff;
+
+    border: 2px solid #111;
+    border-radius: 50px;
+
+    box-shadow: 5px 6px #111;
+
+    font-family: "Mali", sans-serif;
+    font-size: 18px;
+
+    -webkit-text-stroke: 1.5px #111;
+    paint-order: stroke fill;
+
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.submit-button:hover {
+    background: #ff5158;
+}
+
+.submit-button:active {
+    transform: translate(3px, 3px);
+    box-shadow: 2px 3px #111;
+}
+
+.feedback {
+    display: none;
+    margin: 24px auto 0;
+    padding: 15px;
+    width: min(100%, 400px);
+    background: #fffdf5;
+    border: 3px solid #111;
+    box-shadow: 4px 5px #111;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.feedback.show {
+    display: block;
+}
+
+.feedback.correct {
+    border-color: #00a95c;
+}
+
+.feedback.wrong {
+    border-color: #ff3038;
+}
+
+.feedback-title {
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.correct .feedback-title {
+    color: #008b4b;
+}
+
+.wrong .feedback-title {
+    color: #e51f2a;
+}
+
+.arrow:disabled,
+.submit-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.submit-button:disabled:hover {
+    background: #ff3038;
+}
+
+/* พื้นหลังมืดด้านหลัง Popup */
+.feedback-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.feedback-overlay[hidden] {
+    display: none !important;
+}
+
+/* กล่อง Popup */
+.feedback-popup {
+    width: min(100%, 420px);
+    padding: 28px 24px;
+    background: #fffdf5;
+    border: 4px solid #111;
+    border-radius: 12px;
+    box-shadow: 6px 7px #111;
+    text-align: center;
+    font-family: "Mali", sans-serif;
+    animation: popupIn 0.2s ease-out;
+}
+
+.feedback-title {
+    margin-bottom: 15px;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.feedback-title.correct {
+    color: #008b4b;
+}
+
+.feedback-title.wrong {
+    color: #e51f2a;
+}
+
+.feedback-message {
+    margin-bottom: 24px;
+    font-size: 16px;
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+}
+
+/* ปุ่มตกลง */
+.feedback-done {
+    min-width: 120px;
+    padding: 9px 28px;
+    background: #00bd68;
+    color: #111;
+    border: 3px solid #111;
+    border-radius: 30px;
+    box-shadow: 3px 4px #111;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.feedback-done:hover {
+    background: #ffe783;
+}
+
+.feedback-done:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 2px #111;
+}
+
+@keyframes popupIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* =========================
+   PROGRESS BAR 5 ด่าน
+========================= */
+.progress-container {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 650px;
+    z-index: 10;
+    font-family: "Mali", sans-serif;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: clamp(12px, 2vh, 16px);
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.progress-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.progress-step {
+    flex-shrink: 0;
+}
+
+.step-circle {
+    width: clamp(50px, 4.5vh, 42px);
+    height: clamp(50px, 4.5vh, 42px);
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #ffffff;
+    color: var(--ink);
+    font-size: clamp(12px, 2vh, 17px);
+    font-weight: 700;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+/* ด่านที่ผ่านแล้วและด่านปัจจุบัน */
+.step-circle.completed,
+.step-circle.active {
+    background: var(--green);
+    color: #fff;
+}
+
+/* ขยายวงกลมของด่านปัจจุบันเล็กน้อย */
+.step-circle.active {
+    transform: scale(1.12);
+}
+
+/* เส้นเชื่อมระหว่างด่าน */
+.progress-line {
+    flex: 1;
+    height: 15px;
+    min-width: 8px;
+    background: #ffffff;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    transition: background-color 0.2s ease;
+}
+
+/* เส้นที่ผ่านแล้ว */
+.progress-line.completed {
+    background: var(--green);
+}
+
+/* กลุ่มปุ่มตั้งค่าและหน้าหลัก */
+.top-icons {
+    position: absolute;
+    top: calc(105% + 8px);
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    margin: 0;
+    padding: 0;
+
+    z-index: 100;
+}
+
+/* รูปแบบปุ่ม */
+.icon-button {
+    position: relative;
+
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #ffffff;
+    border: 2px solid #111111;
+    border-radius: 50%;
+    box-shadow: 2px 2px 0 #111111;
+
+    box-sizing: border-box;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* ขนาดไอคอน */
+.icon-button svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* ฟันเฟือง */
+#settingsButton svg {
+    fill: #111111;
+}
+
+/* รูปบ้าน */
+.top-icons a svg {
+    fill: none;
+    stroke: #111111;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* เอฟเฟกต์เมื่อชี้ */
+.icon-button:hover {
+    transform: scale(1.08);
+}
+
+/* เอฟเฟกต์เมื่อกด */
+.icon-button:active {
+    transform: scale(0.92);
+}
+
+
+
+/* ปุ่มถัดไป */
+.next-button {
+    position: fixed;
+    z-index: 10001;
+
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+
+    width: min(400px, calc(100% - 40px));
+    padding: 10px 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffe;
+    color: #111;
+
+    border: 2px solid #111;
+    border-radius: 30px;
+
+    font-family: "Mali", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+
+    box-sizing: border-box;
+     cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.next-button[hidden] {
+    display: none !important;
+}
+
+/* Hover */
+.next-button:not([hidden]):hover {
+    transform: translate(-50%, -3px);
+}
+
+/* กดปุ่ม */
+.next-button:not([hidden]):active {
+    transform: translate(-50%, 2px);
+    box-shadow: 1px 2px #111;
+}
+
+/* Focus */
+.next-button:focus-visible {
+    outline: 3px solid #00bd68;
+    outline-offset: 4px;
+}
+
+/* =====================================
+   จอมือถือ
+===================================== */
+
+@media (max-width: 480px) {
+
+    .progress-container {
+        width: 88%;
+        top: 4%;
+    }
+
+    .progress-info {
+        margin-bottom: 7px;
+        font-size: 11px;
+    }
+
+    .progress-line {
+        height: 5px;
+        min-width: 4px;
+    }
+
+    .menu-buttons,
+    .choose-buttons {
+        gap: 12px;
+    }
+
+    .menu-btn,
+    .choose-btn {
+        font-size: 14px;
+        padding: 10px 8px;
+    }
+
+    .ask-btn {
+        width: calc(100% - 40px);
+        font-size: 14px;
+    }
+}
+
+
+/* =====================================
+   แท็บเล็ต
+===================================== */
+
+@media (min-width: 481px) and (max-width: 1024px) {
+
+    .menu-btn,
+    .choose-btn {
+        font-size: 16px;
+    }
+}
+
+
+/* =====================================
+   จอแนวนอนที่มีความสูงน้อย
+===================================== */
+
+@media (orientation: landscape) and (max-height: 500px) {
+
+    .progress-container {
+        top: 3%;
+        width: 65%;
+    }
+
+    .progress-info {
+        margin-bottom: 5px;
+        font-size: 11px;
+    }
+
+    .step-circle {
+        width: 25px;
+        height: 25px;
+        font-size: 11px;
+    }
+
+    .progress-line {
+        height: 4px;
+    }
+
+    .game-screen {
+        width: min(100vw, calc(100dvh * 16 / 9));
+        height: min(100dvh, calc(100vw * 9 / 16));
+    }
+
+}

@@ -1,0 +1,571 @@
+/* =====================================================
+   quiz.css — สไตล์ของแบบทดสอบรวมบท (quiz1 - quiz10)
+   ใช้ร่วมกับ ../common/lesson.css
+===================================================== */
+
+.q-counter {
+    padding: 0.1em 1.1em 0.2em;
+    background: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 30px;
+    box-shadow: 3px 4px 0 var(--ink);
+    font-size: 1.45em;
+    font-weight: 700;
+}
+
+.goose.xs {
+    width: clamp(110px, 34cqw, 160px);
+}
+
+.q-head {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    width: 100%;
+}
+
+.q-head .goose {
+    width: 32%;
+    flex-shrink: 0;
+}
+
+.q-head .pill {
+    flex: 1;
+    min-width: 0;
+    font-size: 1.2em;
+}
+
+.q-help {
+    font-size: 0.85em;
+    font-weight: 600;
+    color: var(--brown);
+}
+
+.quiz {
+    width: 100%;
+}
+
+/* ---------- ตัวเลือกแบบแถบ ---------- */
+
+.choices {
+    display: grid;
+    gap: 0.7em;
+    width: 100%;
+}
+
+.choices.list {
+    width: 86%;
+    margin: 0 auto;
+}
+
+.choices.grid {
+    grid-template-columns: 1fr 1fr;
+}
+
+.choice {
+    padding: 0.55em 0.5em;
+    background: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 40px;
+    box-shadow: 4px 5px 0 var(--ink);
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.choice:hover {
+    transform: translateY(-2px);
+}
+
+.choice.selected {
+    background: #ffe08a;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 3px 0 var(--ink);
+}
+
+/* ---------- ลูกโป่ง (รูปแบบเดียวกับหน้าเกม) ---------- */
+
+.balloon-area {
+    position: relative;
+    width: min(100%, 330px);
+    height: clamp(220px, 70cqw, 280px);
+    margin: 0 auto;
+}
+
+.strings {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.strings line {
+    stroke: var(--ink);
+    stroke-width: 1.2;
+}
+
+.strings circle {
+    fill: var(--ink);
+}
+
+.balloon {
+    position: absolute;
+    z-index: 1;
+    width: 33%;
+    aspect-ratio: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    border-radius: 50%;
+    box-shadow: inset -8px -10px 0 rgba(0, 0, 0, 0.18);
+
+    color: #fff;
+    font-size: 1.7em;
+    font-weight: 700;
+    -webkit-text-stroke: 1.5px var(--ink);
+    paint-order: stroke fill;
+
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.balloon::before {
+    content: "";
+    position: absolute;
+    top: 13%;
+    left: 18%;
+    width: 25%;
+    height: 22%;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.balloon span {
+    position: relative;
+}
+
+.balloon.red    { background: var(--red);  left: 4%;  top: 30%; }
+.balloon.green  { background: #22c55e;     left: 33.5%; top: 6%; }
+.balloon.purple { background: #2563eb;     right: 4%; top: 34%; }
+
+.balloon:hover {
+    transform: translateY(-5px) scale(1.03);
+}
+
+.balloon.selected {
+    outline: 4px solid #fff;
+    outline-offset: -6px;
+    transform: scale(1.1);
+}
+
+/* ---------- ถูกต้อง / ไม่ถูกต้อง ---------- */
+
+.statement {
+    font-size: 0.95em;
+    font-weight: 600;
+}
+
+.tf-row {
+    display: flex;
+    justify-content: space-around;
+    gap: 1em;
+    width: 100%;
+    margin-top: 0.4em;
+}
+
+.tf {
+    min-width: 40%;
+    padding: 0.4em 0.8em;
+    color: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 40px;
+    box-shadow: 4px 5px 0 var(--ink);
+    font-size: 1.3em;
+    font-weight: 700;
+    -webkit-text-stroke: 1.2px var(--ink);
+    paint-order: stroke fill;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.tf.yes { background: #13b35f; }
+.tf.no  { background: var(--red); }
+
+.tf:hover {
+    transform: translateY(-2px);
+}
+
+.tf.selected {
+    outline: 3px dashed var(--ink);
+    outline-offset: 4px;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 3px 0 var(--ink);
+}
+
+/* ---------- ตัวเลือกที่ถูกล็อกหลังส่งคำตอบ ---------- */
+
+.option:disabled,
+.m-item:disabled {
+    cursor: default;
+}
+
+.option.is-answer {
+    outline: 4px solid #00a95c;
+    outline-offset: 3px;
+}
+
+/* ---------- กระเบื้อง (ข้อ 2) ---------- */
+
+.tiles {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 62%;
+    aspect-ratio: 1.15;
+    border: 3px solid var(--ink);
+    background: var(--ink);
+    gap: 3px;
+}
+
+.tile {
+    background: #fff;
+}
+
+.tile.g {
+    background: #0bab69;
+}
+
+/* ---------- หัวใจ (ข้อ 5) ---------- */
+
+.heart svg {
+    display: block;
+    width: 4.5em;
+    margin: 0 auto;
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.9));
+}
+
+/* ---------- จับคู่ (ข้อ 1) ---------- */
+
+.match-area {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 4.5em;
+}
+
+.match-lines {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.match-lines line {
+    stroke: var(--ink);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+}
+
+.match-lines line.wrong {
+    stroke: var(--red);
+    stroke-dasharray: 6 5;
+}
+
+.match-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 1.4em;
+}
+
+.match-col.left {
+    flex: 1;
+}
+
+.m-item {
+    display: flex;
+    align-items: center;
+    gap: 0.45em;
+    padding: 0;
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.m-text {
+    padding: 0.55em 0.6em;
+    background: var(--cream);
+    font-size: 0.86em;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.m-left .m-text {
+    flex: 1;
+}
+
+.m-right .m-text {
+    min-width: 3.6em;
+    font-size: 1em;
+    font-weight: 700;
+}
+
+.dot {
+    flex-shrink: 0;
+    width: 1em;
+    height: 1em;
+    background: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+}
+
+.m-item.pending .dot {
+    background: var(--red);
+    transform: scale(1.25);
+}
+
+.m-item.pending .m-text {
+    outline: 2px dashed var(--red);
+}
+
+.m-item.linked .dot {
+    background: var(--ink);
+}
+
+/* ---------- บีกเกอร์ (ข้อ 8-9) ---------- */
+
+.beaker-wrap {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2em;
+}
+
+.beaker-help {
+    grid-column: 1 / -1;
+    font-size: 0.85em;
+    font-weight: 600;
+    color: var(--brown);
+}
+
+.beaker {
+    --liquid: var(--mint);
+    position: relative;
+    width: clamp(120px, 38cqw, 170px);
+    height: clamp(190px, 58cqw, 250px);
+
+    background: #fff;
+    border: 3px solid var(--ink);
+    border-top: none;
+    border-radius: 0 0 50% 50% / 0 0 22% 22%;
+    overflow: hidden;
+
+    cursor: ns-resize;
+    touch-action: none;
+}
+
+.beaker:focus-visible {
+    outline: 3px solid var(--green);
+    outline-offset: 4px;
+}
+
+/* ขอบปากบีกเกอร์ */
+.beaker::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-top: 3px solid var(--ink);
+    z-index: 3;
+}
+
+.liquid {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 18%;
+    background: var(--liquid);
+    border-top: 3px solid var(--ink);
+    transition: height 0.12s ease;
+}
+
+.ticks {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.tick {
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    transform: translateY(50%);
+    font-size: 0.85em;
+    font-weight: 700;
+}
+
+.tick::before {
+    content: "";
+    width: 1.6em;
+    border-top: 2px solid var(--ink);
+}
+
+.beaker-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6em;
+}
+
+.beaker-value {
+    min-width: 2.6em;
+    padding: 0.15em 0.3em;
+    background: #fff;
+    border: 2px solid var(--ink);
+    font-size: 1.5em;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* ปุ่มลูกศร (รูปแบบเดียวกับหน้าเกม) */
+.arrow {
+    width: 0;
+    height: 0;
+    padding: 0;
+    background: transparent;
+    border-left: 18px solid transparent;
+    border-right: 18px solid transparent;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.arrow:hover {
+    transform: scale(1.12);
+}
+
+.arrow-up {
+    border-bottom: 26px solid var(--ink);
+    border-top: 0;
+}
+
+.arrow-down {
+    border-top: 26px solid var(--ink);
+    border-bottom: 0;
+}
+
+.arrow:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* ---------- Popup แสดงผลคำตอบ (เหมือนหน้าเกม) ---------- */
+
+.feedback-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.feedback-popup {
+    width: min(100%, 420px);
+    padding: 26px 22px;
+
+    background: #fffdf5;
+    border: 4px solid var(--ink);
+    border-radius: 12px;
+    box-shadow: 6px 7px var(--ink);
+
+    text-align: center;
+    animation: popupIn 0.2s ease-out;
+}
+
+.feedback-title {
+    margin-bottom: 12px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.feedback-title.correct {
+    color: #008b4b;
+}
+
+.feedback-title.wrong {
+    color: #e51f2a;
+}
+
+.feedback-title.info {
+    color: var(--brown);
+}
+
+.feedback-message {
+    margin-bottom: 22px;
+    font-size: 15px;
+    line-height: 1.85;
+    overflow-wrap: anywhere;
+}
+
+.feedback-message .fb-answer {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 700;
+}
+
+.feedback-done {
+    min-width: 120px;
+    padding: 8px 28px;
+
+    background: var(--green);
+    color: var(--ink);
+    border: 3px solid var(--ink);
+    border-radius: 30px;
+    box-shadow: 3px 4px var(--ink);
+
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.feedback-done:hover {
+    background: var(--yellow);
+}
+
+/* ปุ่มถัดไปเด้งขึ้นมาหลังส่งคำตอบ */
+.next-button.pop-in {
+    animation: nextPop 0.35s ease-out;
+    background: var(--mint);
+}
+
+@keyframes nextPop {
+    0%   { transform: scale(0.6); opacity: 0; }
+    70%  { transform: scale(1.12); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+/* หัวข้อโจทย์ยาว: กว้างเต็มแถว มุมมนน้อยลง อ่านง่ายบนมือถือ */
+.pill.small {
+    width: 100%;
+    border-radius: 16px;
+    padding: 0.6em 0.9em 0.65em;
+    font-size: clamp(13px, 3.7vw, 15.5px);
+    line-height: 1.5;
+    -webkit-text-stroke: 0.6px var(--ink);
+}

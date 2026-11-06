@@ -1,0 +1,6 @@
+/* ratioch1-3 : Flashcard ผัก 2 กำ ราคา 20 บาท
+   (สไตล์หลักอยู่ใน ../common/lesson.css) */
+
+.flashcard-face.front .flashcard-big {
+    font-size: 2.3em;
+}

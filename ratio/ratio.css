@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Mali:wght@400;500;600;700&display=swap');
+
+:root {
+    --green: #00bd68;
+    --yellow: #ffe783;
+    --dot: #fff3b9;
+    --ink: #111111;
+    --red: #ff3038;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* พื้นที่เกมแนวตั้งตามภาพตัวอย่าง */
+.game-screen {
+    position: relative;
+    isolation: isolate;
+    width: min(100vw, 56.25svh);
+    height: min(100svh, 177.7778vw);
+    overflow: hidden;
+    background-color: var(--yellow);
+    background-image: radial-gradient(
+        circle,
+        var(--dot) 2px,
+        transparent 2.6px
+    );
+    background-size: 17px 17px;
+}
+
+/* =========================
+   GREEN WAVE
+========================= */
+
+.green-wave {
+    position: absolute;
+    bottom: -190px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+
+}
+
+.green-wave svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 250.3px);
+    height: 250px;
+}
+
+.green-wave1 {
+    position: absolute;
+    top: -180px;
+    right: 230px;
+    width: 100%;
+    height: 250px;
+
+    z-index: 1;
+    pointer-events: none;
+}
+
+.green-wave1 svg {
+    display: block;
+    width: 100%;
+      height: 250px;
+    width: calc(100% + 250.3px);
+    transform: scaleX(-1);
+}
+
+.yellow-field {
+    position: absolute;
+    inset: 3.1% 0 2.2%;
+    background-color: var(--yellow);
+    background-image: radial-gradient(
+        circle,
+        var(--dot) 2px,
+        transparent 2.7px
+    );
+    background-size: 17px 17px;
+    clip-path: polygon(
+        0 3.8%, 8% 6.2%, 19% 7.1%, 33% 5.5%,
+        50% 2.3%, 69% 0, 83% 1.2%, 100% 5%,
+        100% 95.5%, 91% 93.2%, 76% 93.5%,
+        61% 96.8%, 44% 99%, 27% 99.6%,
+        12% 98.4%, 0 95.7%
+    );
+}
+
+
+
+.yellow-field {
+    position: absolute;
+    inset: 3.1% 0 2.2%;
+    background-color: var(--yellow);
+    background-image: radial-gradient(
+        circle,
+        var(--dot) 2px,
+        transparent 2.7px
+    );
+    background-size: 17px 17px;
+    clip-path: polygon(
+        0 3.8%, 8% 6.2%, 19% 7.1%, 33% 5.5%,
+        50% 2.3%, 69% 0, 83% 1.2%, 100% 5%,
+        100% 95.5%, 91% 93.2%, 76% 93.5%,
+        61% 96.8%, 44% 99%, 27% 99.6%,
+        12% 98.4%, 0 95.7%
+    );
+}
+
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+
+    display: grid;
+    place-items: center;
+
+    /* พื้นหลังเต็มหน้าจอ */
+    background-color: var(--yellow);
+    background-image: radial-gradient(
+        circle,
+        var(--dot) 2px,
+        transparent 2.6px
+    );
+    background-size: 17px 17px;
+
+    overflow: hidden;
+}
+.goose-container {
+    display: block;
+    width: 400px; /* ลดขนาดรูปจาก 200px เหลือ 150px */
+    margin: 0 auto; /* จัดให้อยู่ตรงกลาง */
+}
+
+.goose-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+/* จัดกลุ่มปุ่มให้อยู่กลางจอ */
+.choose-buttons {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    width: 100%;
+    z-index: 5;
+
+}
+
+.choose-btn {
+    width: 190px;
+    padding: 10px 3px;
+    border: 2px solid #111;
+    border-radius: 2000px;
+    background-color: #ff3038;
+    color: white;
+
+    -webkit-text-stroke:2px #111;    /* ขอบตัวหนังสือสีดำ */
+    paint-order: stroke fill;
+
+    font-size: 16px;
+    font-family: "Mali", sans-serif;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: 0;
+
+    box-shadow: 3px 5px #111;
+    transition: transform 0.15s ease;
+
+}
+
+.choose-btn:hover {
+    background-color: #7BB369;
+    transform: translateY(-3px);
+}
+
+.choose-btn:active {
+    transform: translateY(2px);
+    box-shadow: 1px 2px #111;
+}
+
+.choose-btn:focus-visible {
+    outline: 3px solid #00bd68;
+    outline-offset: 4px;
+}
+
+/* ปุ่มย้อนกลับ */
+.back-button {
+    position: absolute;
+    left: 4%;
+    bottom: 5%;
+    z-index: 10;
+
+    padding: 10px 24px;
+
+    background-color: #ffe;
+    color: #111;
+
+    border: 2px solid #111;
+    border-radius: 30px;
+
+    font-family: "Mali", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.back-button:hover {
+    transform: translateY(-3px);
+}
+
+.back-button:active {
+    transform: translateY(2px);
+    box-shadow: 1px 2px #111;
+}
+
+.back-button:focus-visible {
+    outline: 3px solid #00bd68;
+    outline-offset: 4px;
+}
+
+/* =========================
+   RESPONSIVE: รักษาเทมเพลตเดิม
+========================= */
+
+/* รักษาสัดส่วนของพื้นที่เกม */
+.game-screen {
+    width: min(100vw, calc(100dvh * 9 / 16));
+    height: min(100dvh, calc(100vw * 16 / 9));
+
+    aspect-ratio: 9 / 16;
+    position: relative;
+    overflow: hidden;
+}
+
+/* รักษาสัดส่วนรูปห่าน ไม่ยืดหรือบีบ */
+.goose-container img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* รักษาสัดส่วนดอกไม้ */
+.flowers {
+    height: auto;
+    object-fit: contain;
+}
+
+/* มือถือจอเล็ก: ปรับเฉพาะปุ่มและระยะห่าง */
+@media (max-width: 480px) {
+    .menu-buttons,
+    .choose-buttons {
+        gap: 12px;
+    }
+
+    .menu-btn,
+    .choose-btn {
+        font-size: 14px;
+        padding: 10px 8px;
+    }
+}
+
+/* แท็บเล็ต */
+@media (min-width: 481px) and (max-width: 1024px) {
+    .menu-btn,
+    .choose-btn {
+        font-size: 16px;
+    }
+}
+
+/* มือถือแนวนอน */
+@media (orientation: landscape) and (max-height: 500px) {
+    .game-screen {
+        width: min(100vw, calc(100dvh * 9 / 16));
+        height: min(100dvh, calc(100vw * 16 / 9));
+    }
+}

@@ -1,0 +1,335 @@
+/* =====================================================
+   settings.css — ปุ่มตั้งค่า (ฟันเฟือง) เมนู "คู่มือ / บทเรียน"
+   และป๊อปอัปคู่มือ ใช้ร่วมกันทุกหน้า (หน้าเนื้อหา หน้าเกม หน้าแบบทดสอบ)
+===================================================== */
+
+:root {
+    --green: #00bd68;
+    --mint: #abe4b7;
+    --yellow: #ffe783;
+    --dot: #fff3b9;
+    --ink: #111111;
+    --red: #ff3038;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* =========================
+   ปุ่มตั้งค่า (ฟันเฟือง) และเมนู
+========================= */
+
+.settings-wrap {
+    position: absolute;
+    top: max(8px, calc(58px - var(--gap-y, 0px)));
+    right: clamp(10px, 3cqw, 18px);
+    z-index: 50;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.icon-button {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #ffffff;
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    box-shadow: 2px 2px 0 var(--ink);
+
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.15s ease;
+}
+
+.icon-button svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--ink);
+}
+
+.icon-button.home svg {
+    fill: none;
+    stroke: var(--ink);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.icon-button:hover {
+    transform: rotate(30deg);
+}
+
+.icon-button.home:hover {
+    transform: scale(1.08);
+}
+
+.settings-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    animation: popupIn 0.15s ease-out;
+}
+
+.settings-menu button {
+    min-width: 92px;
+    padding: 6px 14px;
+
+    background: #ffe;
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    border-radius: 30px;
+    box-shadow: 2px 3px 0 var(--ink);
+
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.settings-menu button:hover {
+    background: var(--mint);
+}
+
+/* =========================
+   ป๊อปอัปคู่มือ (เหมือนหน้า index)
+========================= */
+
+.guide-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.guide-popup {
+    width: min(100%, 520px);
+    max-height: 90dvh;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 24px;
+    background: #fffdf5;
+    border: 4px solid var(--ink);
+    border-radius: 12px;
+    box-shadow: 7px 8px var(--ink);
+    animation: popupIn 0.2s ease-out;
+}
+
+.guide-header {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 14px;
+}
+
+.guide-title {
+    padding: 8px 28px;
+    background: var(--red);
+    color: #fff;
+    border: 3px solid var(--ink);
+    border-radius: 30px;
+    box-shadow: 3px 4px var(--ink);
+    font-weight: 700;
+}
+
+.guide-content {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding-right: 6px;
+    font-size: 13px;
+    line-height: 1.9;
+    text-align: justify;
+}
+
+.guide-content p {
+    margin-bottom: 8px;
+}
+
+.guide-content h3 {
+    margin: 10px 0;
+    font-size: 15px;
+    text-align: center;
+    background: var(--dot);
+}
+
+.guide-content ol {
+    padding-left: 24px;
+}
+
+.guide-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 12px;
+    border-top: 1px solid #ddd;
+}
+
+.guide-done {
+    padding: 8px 28px;
+    background: var(--red);
+    color: #fff;
+    border: 3px solid var(--ink);
+    border-radius: 30px;
+    box-shadow: 3px 4px var(--ink);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.guide-done:hover {
+    background: var(--green);
+}
+
+@keyframes popupIn {
+    from { opacity: 0; transform: scale(0.92); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+
+/* ---------- ตำแหน่งปุ่มตั้งค่าในหน้าเกม (ใต้แถบด่าน ชิดขวา) ---------- */
+
+.progress-bar {
+    position: relative;
+}
+
+.progress-bar .settings-wrap {
+    top: calc(100% + 14px);
+    right: 0;
+}
+
+.settings-wrap .icon-button,
+.settings-menu button {
+    font-family: "Mali", sans-serif;
+}
+
+.guide-popup {
+    font-family: "Mali", sans-serif;
+}
+
+/* ระยะห่างจอเกมกับขอบจอ (ใช้หลบคลื่นด้านบน) สำหรับหน้าที่ไม่ได้ใช้ lesson.css */
+.game-screen {
+    --gap-y: calc((100dvh - min(100dvh, 100vw * 16 / 9)) / 2);
+}
+
+/* ผู้จัดทำ (ท้ายคู่มือ) */
+.guide-credit {
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px dashed #bbb;
+    font-weight: 700;
+    text-align: center;
+}
+
+.guide-credit .nw {
+    white-space: nowrap;
+}
+
+/* ให้ป๊อปอัปคู่มือสูงพอดีเนื้อหา */
+.guide-overlay .guide-popup {
+    height: auto;
+}
+
+/* =========================
+   ป๊อปอัปสรุปเนื้อหา
+========================= */
+
+.summary-chapter {
+    margin-bottom: 8px;
+    font-family: "Mali", sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    text-align: center;
+    color: #9e5d43;
+}
+
+.summary-content h4 {
+    margin: 10px 0 2px;
+    padding: 2px 8px;
+    background: var(--dot);
+    font-size: 15px;
+}
+
+.summary-content p {
+    margin-bottom: 6px;
+}
+
+.summary-content .r { color: var(--red); }
+.summary-content .b { color: #1d4ed8; }
+.summary-content .center { text-align: center; }
+
+.sfrac {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    vertical-align: middle;
+    margin: 0 0.15em;
+    line-height: 1.2;
+}
+
+.sfrac > span:first-child {
+    padding: 0 0.2em;
+    border-bottom: 2px solid currentColor;
+}
+
+.summary-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 0 2px;
+}
+
+.summary-arrow {
+    width: 42px;
+    height: 42px;
+    background: #fff;
+    border: 3px solid #111;
+    border-radius: 50%;
+    box-shadow: 2px 3px #111;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.summary-arrow:hover:not(:disabled) {
+    background: var(--mint);
+}
+
+.summary-arrow:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+.summary-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.sdot {
+    width: 10px;
+    height: 10px;
+    background: #ddd;
+    border: 2px solid #111;
+    border-radius: 50%;
+}
+
+.sdot.on {
+    background: var(--green);
+}
+
+.summary-content {
+    text-align: left;
+}

@@ -1,0 +1,51 @@
+/* =====================================================
+   chapterscore.css — จัดหน้าคะแนนเกมท้ายบท (ratio / prop / percent)
+   ให้เรียงเป็นแนวตั้งกึ่งกลาง และปุ่มขนาดเท่ากันทุกบท
+   (ใช้คู่กับ chapterscore.js)
+===================================================== */
+
+.cs-wrap {
+    position: fixed;
+    inset: 110px 16px 90px;
+    z-index: 5;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.cs-wrap .score-heading,
+.cs-wrap #result-message,
+.cs-wrap .goose-container,
+.cs-wrap .score-box,
+.cs-wrap .retry-button {
+    margin: 0 !important;
+}
+
+.cs-wrap .score-box {
+    width: min(260px, 70vw) !important;
+    min-height: 90px !important;
+}
+
+.cs-wrap .goose-container {
+    width: min(190px, 48vw) !important;
+}
+
+.cs-wrap #result-message {
+    text-align: center;
+}
+
+.cs-wrap .retry-button {
+    width: min(300px, 82vw) !important;
+    padding: 10px 16px !important;
+    white-space: nowrap;
+    font-size: 18px !important;
+}
+
+/* ตัดขอบโปร่งใสรอบรูปห่าน */
+.cs-wrap .goose-container img {
+    aspect-ratio: 1.55;
+    object-fit: cover;
+}

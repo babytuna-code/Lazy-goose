@@ -1,0 +1,39 @@
+/* =====================================================
+   waves.css — คลื่นสีเขียวบน-ล่าง (เหมือนหน้า index และหน้าเกมบทอัตราส่วน)
+   ใช้กับหน้าที่ยังไม่มีสไตล์คลื่นในไฟล์ CSS ของตัวเอง
+===================================================== */
+
+.green-wave {
+    /* fixed: ยึดกับขอบจอ ไม่ขึ้นกับกล่องที่ครอบอยู่ */
+    position: fixed;
+    bottom: -190px;
+    left: 0;
+    width: 100vw;
+    overflow: hidden;
+    line-height: 0;
+    pointer-events: none;
+}
+
+.green-wave svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 250.3px);
+    height: 250px;
+}
+
+.green-wave1 {
+    position: fixed;
+    top: -180px;
+    right: 230px;
+    width: 100vw;
+    height: 250px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.green-wave1 svg {
+    display: block;
+    height: 250px;
+    width: calc(100% + 250.3px);
+    transform: scaleX(-1);
+}

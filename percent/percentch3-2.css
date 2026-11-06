@@ -1,0 +1,59 @@
+/* percentch3-2 : ความหมายของกำไร 20% */
+
+.watch-card {
+    width: 100%;
+    background: #fff;
+    border: 2px solid var(--ink);
+    font-weight: 600;
+}
+
+.wc-top {
+    padding: 0.35em;
+    background: var(--yellow);
+    border-bottom: 2px solid var(--ink);
+}
+
+.wc-pic svg {
+    display: block;
+    width: 55%;
+    margin: 0.6em auto 0.2em;
+}
+
+.wc-mid {
+    padding: 0.2em 0.3em 0.4em;
+    border-bottom: 2px solid var(--ink);
+}
+
+.wc-bottom {
+    padding: 0.35em;
+    background: var(--mint);
+}
+
+.ratio-line {
+    font-size: 1.15em;
+}
+
+.hl-mint {
+    padding: 0 0.25em;
+    background: var(--mint);
+}
+
+.hl-cream {
+    padding: 0 0.25em;
+    background: var(--cream);
+}
+
+/* กรอบสีในเศษส่วนไม่ทับเส้นกึ่งกลาง */
+.frac .hl-mint,
+.frac .hl-cream {
+    display: inline-block;
+    line-height: 1.25;
+}
+
+.frac > span:first-child .hl-mint {
+    margin-bottom: 4px;
+}
+
+.frac > span:last-child .hl-cream {
+    margin-top: 4px;
+}

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffe783">
+    <title>Lazy Goose</title>
+
+    <!-- เชื่อมไฟล์ CSS -->
+    <link rel="stylesheet" href="./percentplay1.css">
+    <!-- ปุ่มตั้งค่าแบบเดียวกับหน้าเนื้อหา -->
+    <link rel="stylesheet" href="../common/settings.css">
+    <link rel="stylesheet" href="../common/waves.css">
+    <link rel="stylesheet" href="../common/daisy.css">
+    <!-- ปุ่มส่งคำตอบ / ถัดไป ขนาดและตำแหน่งเดียวกันทุกหน้า -->
+    <link rel="stylesheet" href="../common/gamebuttons.css">
+    <!-- วิธีทำในป๊อปอัปเฉลย -->
+    <link rel="stylesheet" href="../common/solution.css">
+</head>
+
+<body data-stage="1" data-back="percent.html" data-next="percentplay2.html">
+
+    <!-- ตกแต่งพื้นหลัง: วางไว้ต้น body เพื่อให้อยู่ติดขอบจอเสมอ -->
+    <!-- คลื่นสีเขียวด้านล่าง -->
+    <div class="green-wave">
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <defs>
+                <linearGradient id="greenGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="100%" stop-color="#00BF63"/>
+                </linearGradient>
+            </defs>
+            <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                fill="url(#greenGradient)" stroke="#111111" stroke-width="3" />
+        </svg>
+    </div>
+
+    <!-- คลื่นสีเขียวด้านบน -->
+    <div class="green-wave1">
+        <svg viewBox="0 20 1440 320" preserveAspectRatio="none">
+            <g transform="translate(0 320) scale(1 -1)">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                    fill="url(#greenGradient)" stroke="#111111" stroke-width="3" />
+            </g>
+        </svg>
+    </div>
+    <!-- ดอกเดซี่บนคลื่นสีเขียว -->
+    <div class="daisy-bottom">
+        <img src="../pics/daisy.png" alt="">
+    </div>
+
+    
+    <!-- Progress Bar 5 ด่าน -->
+    <div class="progress-container">
+        <div class="progress-info">
+            <span id="stageText"> 1 / 5</span>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-step">
+            <div class="step-circle">1</div>
+        </div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-step">
+            <div class="step-circle">2</div>
+        </div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-step">
+            <div class="step-circle">3</div>
+        </div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-step">
+            <div class="step-circle">4</div>
+        </div>
+
+        <div class="progress-line"></div>
+
+        <div class="progress-step">
+            <div class="step-circle">5</div>
+        </div>
+
+        <!-- ปุ่มตั้งค่า (รูปแบบเดียวกับหน้าเนื้อหา) -->
+    <div class="settings-wrap">
+        <button class="icon-button" id="settingsButton" type="button"
+            aria-label="ตั้งค่า" aria-expanded="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.14 12.94c.04-.31.06-.63.06-.94s-.02-.63-.07-.94l2.03-1.58a.5.5 0 0 0 .12-.64l-1.92-3.32a.5.5 0 0 0-.61-.22l-2.39.96a7.3 7.3 0 0 0-1.63-.94L14.37 2.8a.49.49 0 0 0-.49-.4h-3.84a.49.49 0 0 0-.49.4L9.19 5.32c-.59.23-1.14.55-1.63.94l-2.39-.96a.5.5 0 0 0-.61.22L2.64 8.84a.5.5 0 0 0 .12.64l2.03 1.58c-.05.31-.07.63-.07.94s.02.63.07.94l-2.03 1.58a.5.5 0 0 0-.12.64l1.92 3.32c.12.21.37.3.61.22l2.39-.96c.49.39 1.04.71 1.63.94l.36 2.52c.04.23.24.4.49.4h3.84c.25 0 .45-.17.49-.4l.36-2.52c.59-.23 1.14-.55 1.63-.94l2.39.96c.24.08.49-.01.61-.22l1.92-3.32a.5.5 0 0 0-.12-.64zM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"/></svg>
+        </button>
+        <div class="settings-menu" id="settingsMenu" hidden>
+            <button type="button" data-action="guide">คู่มือ</button>
+            <button type="button" data-action="lessons">บทเรียน</button>
+        </div>
+    </div>
+    
+    </div>
+
+            <!-- คำถาม -->
+    <button class="ask-btn" id="questionText" type="button">
+    กำลังโหลดโจทย์...
+</button>
+
+    
+<!-- ตะกร้าใส่ลูกบอล 3 ลูก -->
+<div class="basket-area" id="balloonArea">
+
+    <!-- ด้านหลังตะกร้า -->
+    <div class="basket-back" aria-hidden="true"></div>
+
+    <!-- ลูกบอลสีแดง -->
+    <button class="balloon ball-option red"
+            type="button"
+            data-answer=""
+            aria-pressed="false"
+            aria-label="ลูกบอลตัวเลือกที่ 1">
+
+        <span>?</span>
+
+    </button>
+
+    <!-- ลูกบอลสีเขียว -->
+    <button class="balloon ball-option green"
+            type="button"
+            data-answer=""
+            aria-pressed="false"
+            aria-label="ลูกบอลตัวเลือกที่ 2">
+
+        <span>?</span>
+
+    </button>
+
+    <!-- ลูกบอลสีม่วง -->
+    <button class="balloon ball-option purple"
+            type="button"
+            data-answer=""
+            aria-pressed="false"
+            aria-label="ลูกบอลตัวเลือกที่ 3">
+
+        <span>?</span>
+
+    </button>
+
+    <!-- ด้านหน้าตะกร้า -->
+    <div class="basket-front" aria-hidden="true"></div>
+
+</div>
+
+
+   <!-- ปุ่มส่งคำตอบ -->
+        <button class="submit-button"
+                id="submitButton"
+                type="button">
+            ส่งคำตอบ
+        </button>
+
+    <!-- Popup เฉลย -->
+    <div class="feedback-overlay" id="feedback" hidden>
+        <section class="feedback-popup"
+                 role="dialog"
+                 aria-modal="true"
+                 aria-labelledby="feedbackTitle">
+
+            <h2 class="feedback-title" id="feedbackTitle"></h2>
+
+            <p class="feedback-message" id="feedbackMessage"></p>
+
+            <button class="feedback-done"
+                    id="feedbackDone"
+                    type="button">
+                ตกลง
+            </button>
+        </section>
+    </div>
+
+    <button class="next-button"
+        id="nextButton"
+        type="button"
+        hidden>
+    ถัดไป →
+    </button>
+
+    
+    <!-- เชื่อมไฟล์ JavaScript -->
+    <script src="./percentplay1.js"></script>
+    
+    <script src="../common/settings.js"></script>
+    <script src="../common/gamebuttons.js"></script>
+</body>
+</html>

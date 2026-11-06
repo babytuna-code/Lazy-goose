@@ -1,0 +1,18 @@
+/* ratioch1-9 : อัตราส่วนหลาย ๆ จำนวน (ปากกา ยางลบ สมุด) */
+
+.stuff svg {
+    width: 2.6em;
+}
+
+.stuff .gap {
+    width: 1.2em;
+}
+
+.stuff.small svg {
+    width: 2.05em;
+}
+
+.big-num {
+    -webkit-text-stroke: 1px var(--ink);
+    paint-order: stroke fill;
+}

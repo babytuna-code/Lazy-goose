@@ -1,0 +1,49 @@
+/* percentch3-7-2 : 9 เป็นกี่เปอร์เซ็นต์ของ 45 */
+
+.calc {
+    width: 100%;
+}
+
+.calc .eq {
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    font-size: 1.15em;
+    row-gap: 0.9em;
+}
+
+.pill.medium .frac {
+    font-size: 0.75em;
+    -webkit-text-stroke: 0.6px var(--ink);
+}
+
+
+/* ย่อระยะห่างให้หน้าพอดีจอเดียว */
+.stack {
+    gap: 6px;
+}
+
+.box {
+    padding: 0.45em 0.75em;
+    line-height: 1.45;
+}
+
+/* ข้อสังเกต */
+.observe {
+    width: 100%;
+    padding: 0.5em 0.8em;
+    background: #fff;
+    border: 2px dashed var(--ink);
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.observe-label {
+    color: var(--blue);
+    font-weight: 700;
+}
+
+.observe-eq {
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    margin: 0.5em 0;
+}

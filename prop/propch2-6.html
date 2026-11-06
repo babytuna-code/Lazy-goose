@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffe783">
+    <title>Lazy Goose</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- เชื่อมไฟล์ CSS -->
+    <link rel="stylesheet" href="../common/lesson.css">
+    <link rel="stylesheet" href="../common/settings.css">
+    <link rel="stylesheet" href="./propch2-6.css">
+</head>
+
+<body data-prev="propch2-5.html" data-next="propch2-7.html">
+    <main class="game-screen">
+
+        <!-- ปุ่มตั้งค่า -->
+        <div class="settings-wrap">
+            <button class="icon-button" id="settingsButton" type="button"
+                aria-label="ตั้งค่า" aria-expanded="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.14 12.94c.04-.31.06-.63.06-.94s-.02-.63-.07-.94l2.03-1.58a.5.5 0 0 0 .12-.64l-1.92-3.32a.5.5 0 0 0-.61-.22l-2.39.96a7.3 7.3 0 0 0-1.63-.94L14.37 2.8a.49.49 0 0 0-.49-.4h-3.84a.49.49 0 0 0-.49.4L9.19 5.32c-.59.23-1.14.55-1.63.94l-2.39-.96a.5.5 0 0 0-.61.22L2.64 8.84a.5.5 0 0 0 .12.64l2.03 1.58c-.05.31-.07.63-.07.94s.02.63.07.94l-2.03 1.58a.5.5 0 0 0-.12.64l1.92 3.32c.12.21.37.3.61.22l2.39-.96c.49.39 1.04.71 1.63.94l.36 2.52c.04.23.24.4.49.4h3.84c.25 0 .45-.17.49-.4l.36-2.52c.59-.23 1.14-.55 1.63-.94l2.39.96c.24.08.49-.01.61-.22l1.92-3.32a.5.5 0 0 0-.12-.64zM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"/></svg>
+            </button>
+            <div class="settings-menu" id="settingsMenu" hidden>
+                <button type="button" data-action="guide">คู่มือ</button>
+                <button type="button" data-action="lessons">บทเรียน</button>
+            </div>
+        </div>
+
+        <!-- เนื้อหา -->
+        <div class="lesson-content">
+            <div class="stack">
+                <div class="problem-box">โรงพิมพ์รับจ้างพิมพ์แผ่นพับโฆษณาสินค้าตัวหนึ่ง ถ้าใช้เครื่องพิมพ์ชนิดเดียวกัน 4 เครื่อง จะพิมพ์แผ่นพับนี้เสร็จภายใน 5 วัน ถ้าเจ้าของสินค้าต้องการให้พิมพ์เสร็จภายใน 2 วัน โรงพิมพ์จะต้องใช้เครื่องพิมพ์ชนิดเดียวกันนี้กี่เครื่องในการพิมพ์แผ่นพับดังกล่าวนี้</div>
+                <p class="red-title">โจทย์ถามจำนวนเครื่องพิมพ์ที่ต้องใช้<br>ในการพิมพ์แผ่นพับให้เสร็จภายใน 2 วัน</p>
+                <div class="box">
+                    <p class="c-blue b">ให้พิมพ์แผ่นพับเสร็จภายใน 2 วัน จะใช้เครื่องพิมพ์ f เครื่อง</p>
+                    <p>จากโจทย์ พิมพ์แผ่นพับเสร็จภายใน 5 วัน ใช้เครื่องพิมพ์ 4 เครื่อง</p>
+                </div>
+                <p class="b">เขียนเป็นสัดส่วนผกผันได้ดังนี้</p>
+                <div class="box word-eq">
+                    <span class="frac"><span>จำนวนวันที่ใช้พิมพ์ด้วยเครื่องพิมพ์ f เครื่อง</span><span>จำนวนวันที่ใช้พิมพ์ด้วยเครื่องพิมพ์ 4 เครื่อง</span></span><span class="eq-sign">=</span><span class="frac"><span>จำนวนเครื่องพิมพ์ 4 เครื่อง</span><span><span class="c-blue">จำนวนเครื่องพิมพ์ f เครื่อง</span></span></span>
+                </div>
+                <div class="box calc-box">
+                        <div class="eq">
+                            <span></span><span></span><span class="cross-line"><span class="cross"><span class="frac"><span>2</span><span>5</span></span><span class="x-mid"><svg viewBox="0 0 30 26" aria-hidden="true"><defs><marker id="xhead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 10 5 0 10Z" fill="currentColor"/></marker></defs><line x1="28" y1="23" x2="3" y2="3" marker-end="url(#xhead)"/><line x1="2" y1="23" x2="27" y2="3" marker-end="url(#xhead)"/></svg><span class="x-eq">=</span></span><span class="frac"><span>4</span><span><span class="c-blue">f</span></span></span></span></span>
+                            <span class="c-blue">f × 2</span><span>=</span><span>5 × 4</span>
+                            <span class="c-blue">f</span><span>=</span><span><span class="frac"><span>5 × 4</span><span>2</span></span></span>
+                            <span class="c-blue">f</span><span>=</span><span class="c-blue b">10 เครื่อง</span>
+                    </div>
+                </div>
+                <div class="side-notes">
+                        <p class="cloud">เมื่อจำนวนเครื่องพิมพ์เพิ่มขึ้น<br>จำนวนวันที่ใช้พิมพ์จะลดลง</p>
+                        <p class="box note">นั่นคือ<br>จำนวนเครื่องพิมพ์เปลี่ยนแปลงไป<br><span class="c-red">ในทางกลับกัน</span>กับจำนวนวันที่ใช้พิมพ์</p>
+                </div>
+                <p class="red-title">ดังนั้น จะต้องใช้เครื่องพิมพ์ 10 เครื่อง<br>ในการพิมพ์แผ่นพับให้เสร็จภายใน 2 วัน</p>
+            </div>
+        </div>
+
+        <!-- ปุ่มย้อนกลับ / ถัดไป -->
+        <nav class="lesson-nav">
+            <button class="back-button" id="backBtn" type="button">← ย้อนกลับ</button>
+            <button class="next-button" id="nextBtn" type="button">ถัดไป →</button>
+        </nav>
+    </main>
+
+    <!-- คลื่นสีเขียวด้านล่าง -->
+    <div class="green-wave">
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <defs>
+                <linearGradient id="greenGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="100%" stop-color="#00BF63"/>
+                </linearGradient>
+            </defs>
+            <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                fill="url(#greenGradient)" stroke="#111111" stroke-width="3" />
+        </svg>
+    </div>
+
+    <!-- คลื่นสีเขียวด้านบน -->
+    <div class="green-wave1">
+        <svg viewBox="0 20 1440 320" preserveAspectRatio="none">
+            <g transform="translate(0 320) scale(1 -1)">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                    fill="url(#greenGradient)" stroke="#111111" stroke-width="3" />
+            </g>
+        </svg>
+    </div>
+
+    <!-- ดอกไม้ด้านล่าง -->
+    <div class="daisy-container">
+        <img src="../pics/daisy.png" alt="">
+    </div>
+
+    <!-- เชื่อมไฟล์ JavaScript -->
+    <script src="../common/settings.js"></script>
+    <script src="../common/lesson.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffe783">
+    <title>Lazy Goose — หลังบ้านคะแนน</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- เชื่อมไฟล์ CSS -->
+    <link rel="stylesheet" href="./admin.css">
+
+    <!-- ไลบรารีสร้างไฟล์ Excel (SheetJS) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+
+<body>
+
+    <!-- ใส่รหัสผ่านก่อนเข้า -->
+    <section class="pin-card" id="pinCard">
+        <img src="../pics/goose.png" alt="ห่านขาว" class="pin-goose">
+        <h1>หลังบ้านคะแนน</h1>
+        <p>แบบทดสอบรวมบท (สำหรับครู)</p>
+        <form id="pinForm">
+            <input type="password" id="pinInput" inputmode="numeric" placeholder="รหัสผ่าน" aria-label="รหัสผ่าน" autocomplete="off">
+            <button type="submit" class="btn red">เข้าสู่ระบบ</button>
+        </form>
+        <p class="pin-error" id="pinError" hidden>รหัสผ่านไม่ถูกต้อง</p>
+    </section>
+
+    <!-- หน้าหลังบ้าน -->
+    <main class="admin" id="adminPanel" hidden>
+
+        <header class="admin-head">
+            <h1>หลังบ้านคะแนน <span>แบบทดสอบรวมบท</span></h1>
+        </header>
+
+        <p class="sheet-status" id="sheetStatus"></p>
+
+        <section class="stats">
+            <div class="stat"><span class="stat-label">จำนวนผู้สอบ</span><span class="stat-value" id="statCount">0</span></div>
+            <div class="stat"><span class="stat-label">คะแนนเฉลี่ย</span><span class="stat-value" id="statAvg">-</span></div>
+            <div class="stat"><span class="stat-label">สูงสุด</span><span class="stat-value" id="statMax">-</span></div>
+            <div class="stat"><span class="stat-label">ต่ำสุด</span><span class="stat-value" id="statMin">-</span></div>
+        </section>
+
+        <section class="toolbar">
+            <button class="btn" id="reloadButton" type="button">⟳ โหลดข้อมูลล่าสุด</button>
+            <button class="btn green" id="exportButton" type="button">⬇ ดาวน์โหลด Excel</button>
+            <button class="btn red" id="clearButton" type="button">ลบข้อมูลทั้งหมด</button>
+        </section>
+
+        <p class="export-note" id="exportNote" hidden></p>
+
+        <div class="table-wrap">
+            <table class="score-table">
+                <thead>
+                    <tr id="tableHead"></tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+            <p class="empty" id="emptyText">ยังไม่มีข้อมูลคะแนนในเครื่องนี้</p>
+        </div>
+
+        <p class="footnote">
+            * เมื่อตั้งค่า Google Sheets แล้ว หน้านี้จะแสดงคะแนนของนักเรียนทุกเครื่อง
+            เปิดได้จากลิงก์ของหน้านี้โดยตรง (ไม่มีลิงก์ในหน้าของนักเรียน) — ดูวิธีตั้งค่าใน README_หลังบ้าน.md
+        </p>
+    </main>
+
+    <!-- เชื่อมไฟล์ JavaScript -->
+    <script src="./score-config.js"></script>
+    <script src="./question-sets.js"></script>
+    <script src="./scorebook.js"></script>
+    <script src="./admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+/* ratioch1-4 : ข้อควรระวัง และ อัตรา (Rate) */
+
+.warn-title {
+    display: flex;
+    align-items: center;
+    gap: 0.25em;
+}
+
+.warn-star {
+    font-size: 2.6em;
+    line-height: 1;
+    color: var(--orange);
+    -webkit-text-stroke: 1.5px var(--ink);
+}
+
+.rate-box {
+    position: relative;
+    padding-bottom: 1.2em;
+}
+
+.rate-word {
+    margin: 0.6em auto;
+    width: 82%;
+    padding: 0.2em 0;
+    background: var(--mint);
+    font-size: 1.9em;
+    font-weight: 700;
+    color: #fff;
+    -webkit-text-stroke: 1.3px var(--ink);
+    paint-order: stroke fill;
+}
+
+.rate-list {
+    display: flex;
+    gap: 0.5em;
+    justify-content: center;
+    text-align: left;
+}
+
+.rate-list ul {
+    list-style: none;
+}
+
+.rate-goose {
+    position: absolute;
+    right: -6px;
+    bottom: -10px;
+    width: 42%;
+    max-width: 170px;
+    transform: scaleX(-1);
+}

@@ -1,0 +1,13 @@
+/* ratioch1-5 : หัวข้อย่อยของบทอัตราส่วน */
+
+.topic-link {
+    width: 92%;
+    text-decoration: none;
+    font-size: 1.45em;
+    transition: transform 0.15s ease;
+}
+
+.topic-link:hover {
+    transform: translateY(-3px);
+    background: #7bb369;
+}

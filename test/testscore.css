@@ -1,0 +1,232 @@
+/* =====================================================
+   testscore.css — หน้าสรุปคะแนนแบบทดสอบรวมบท
+   รูปแบบเดียวกับ ratioscore.css
+===================================================== */
+
+.score-heading {
+    font-size: 2.8em;
+    font-weight: 700;
+    color: #fff;
+    -webkit-text-stroke: 1.5px var(--ink);
+    paint-order: stroke fill;
+    text-shadow: 2px 3px 0 var(--ink);
+}
+
+.score-box {
+    width: 62%;
+    min-height: 2.4em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3em;
+
+    background: #a9e4b8;
+    border: 3px solid var(--ink);
+    border-radius: 55px;
+    box-shadow: 7px 8px 0 var(--ink);
+
+    font-size: 2.6em;
+    font-weight: 700;
+    color: #fff;
+    -webkit-text-stroke: 1.5px var(--ink);
+    paint-order: stroke fill;
+}
+
+.score-dots {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.35em;
+    margin-top: 0.6em;
+}
+
+.score-dot {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.9em;
+    height: 1.9em;
+    background: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    font-size: 0.85em;
+    font-weight: 700;
+}
+
+.score-dot.right {
+    background: var(--green);
+    color: #fff;
+}
+
+.score-dot.wrong {
+    background: var(--red);
+    color: #fff;
+}
+
+#result-message {
+    font-size: 2em;
+    font-weight: 700;
+    color: #fff;
+    -webkit-text-stroke: 1.5px var(--ink);
+    paint-order: stroke fill;
+    text-shadow: 2px 3px 0 var(--ink);
+}
+
+.retry-button {
+    width: 78%;
+    padding: 0.45em 1em;
+
+    background: var(--red);
+    color: #fff;
+    border: 3px solid var(--ink);
+    border-radius: 50px;
+    box-shadow: 5px 6px 0 var(--ink);
+
+    font-size: 1.3em;
+    font-weight: 700;
+    -webkit-text-stroke: 1px var(--ink);
+    paint-order: stroke fill;
+
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.retry-button:hover {
+    background: #ff5158;
+    transform: translateY(-3px);
+}
+
+.retry-button:active {
+    transform: translate(3px, 3px);
+    box-shadow: 2px 3px 0 var(--ink);
+}
+
+.score-name {
+    margin-top: -0.4em;
+    font-size: 1.15em;
+    font-weight: 700;
+    white-space: pre-wrap;
+}
+
+.save-status {
+    font-size: 0.9em;
+    font-weight: 700;
+    color: #00843f;
+}
+
+/* ปุ่มดูเฉลย */
+.retry-button.answer-button {
+    background: var(--green);
+}
+
+.retry-button.answer-button:hover {
+    background: #13d27c;
+}
+
+/* ---------- คะแนนแยกรายบท ---------- */
+
+.chapter-scores {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4em;
+    margin-top: -0.2em;
+}
+
+.chip {
+    padding: 0.1em 0.7em;
+    background: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 30px;
+    font-size: 0.8em;
+    font-weight: 700;
+}
+
+.chip.ok  { background: #d4f2dc; }
+.chip.low { background: #ffd6d8; }
+
+/* ---------- คำแนะนำ ---------- */
+
+.advice {
+    width: 100%;
+    padding: 0.7em 0.9em;
+    background: var(--cream);
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    box-shadow: 4px 5px 0 var(--ink);
+    text-align: left;
+    font-size: 0.92em;
+    line-height: 1.6;
+}
+
+.advice-title {
+    font-weight: 700;
+    color: #00843f;
+    text-align: center;
+}
+
+.advice-label {
+    font-weight: 700;
+}
+
+.advice-label.ok  { color: #00843f; }
+.advice-label.low { color: var(--red); }
+
+.advice-hint {
+    margin-top: 0.2em;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.advice-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 0.6em;
+}
+
+/* ปุ่มไปบทที่ควรฝึก (แบบเดียวกับหน้าเลือกบทเรียน มีเงาขอบดำ) */
+.advice .menu-btn {
+    min-width: 110px;
+    padding: 5px 14px;
+    border: 2px solid #111;
+    border-radius: 2000px;
+    box-shadow: 3px 4px 0 #111;
+    background: var(--red);
+    color: #fff;
+    -webkit-text-stroke: 1.5px #111;
+    paint-order: stroke fill;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    transition: transform 0.15s ease;
+}
+
+.advice .menu-btn:hover {
+    background: #7bb369;
+    transform: translateY(-3px);
+}
+
+.advice .menu-btn:active {
+    transform: translateY(2px);
+    box-shadow: 1px 2px 0 #111;
+}
+
+/* ลำดับหน้าคะแนน: ห่าน → คะแนน → ชื่อ → กล่องคะแนน → คำชม → ผลรายข้อ → คำแนะนำ → ปุ่ม */
+.score-heading {
+    margin-top: -0.3em;
+    line-height: 1.1;
+}
+
+.score-name {
+    margin-top: -0.5em;
+    font-size: 1.05em;
+    color: #333;
+}
+
+#result-message {
+    margin-top: -0.2em;
+    font-size: 1.7em;
+}
